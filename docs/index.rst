@@ -8,7 +8,7 @@ If you need help feel free to check out the `Astroneer Modding Discord <https://
 Check out the :doc:`standards` section for formal standards mods should follow 
 like :ref:`metadata` and :ref:`indexfile`.
 
-If you want to learn how to actually
+If you want to learn how to actually make mods checkout the :ref:`guides` section.
 
 .. note::
 
