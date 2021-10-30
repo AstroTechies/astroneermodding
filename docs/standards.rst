@@ -5,10 +5,13 @@ Modding standards
 
 This section of the documentation was primarily written by `atenfyr <https://github.com/atenfyr>`_.
 
-.. autosummary::
-   :toctree: generated
+Contents:
+
+.. toctree::
+   :maxdepth: 3
 
    standards
+
 
 .. _general:
 
