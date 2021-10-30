@@ -15,8 +15,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :glob:
-   *
 
-   :hidden:
-   notice
+   Home <index>
+   standards
+   guides
