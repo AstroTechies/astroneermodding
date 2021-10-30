@@ -130,6 +130,7 @@ The following is a list of fields that can be specified within the root object o
 As an example, here is a valid ``metadata.json file`` incorporating all of the defined fields:
 
 .. code-block:: JSON
+
    {
        "schema_version": 1,
        "name": "Coordinate GUI",
@@ -173,6 +174,7 @@ As an example, here is a valid ``metadata.json file`` incorporating all of the d
 As another example, here is a valid ``metadata.json`` file containing only the ``"schema_version"`` field and the REQUIRED fields:
 
 .. code-block:: JSON
+
    {
        "schema_version": 1,
 	    "name": "My Tiny Mod",
