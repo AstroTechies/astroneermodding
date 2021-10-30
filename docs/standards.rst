@@ -127,7 +127,7 @@ The following is a list of fields that can be specified within the root object o
    such as the list of items that a certain printer can print or the global master list that contains items that need to be referenced on
    bootup for the research catalog or otherwise. This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
-As an example, here is a valid ``metadata.json file`` incorporating all of the defined fields:
+As an example, here is a valid ``metadata.json`` file incorporating all of the defined fields:
 
 .. code-block:: JSON
 
@@ -177,9 +177,9 @@ As another example, here is a valid ``metadata.json`` file containing only the `
 
    {
        "schema_version": 1,
-	    "name": "My Tiny Mod",
-	    "mod_id": "TinyMod",
-	    "version": "0.1.0"
+       "name": "My Tiny Mod",
+       "mod_id": "TinyMod",
+       "version": "0.1.0"
    }
 
 
