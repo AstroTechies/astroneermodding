@@ -5,9 +5,8 @@ Modding standards
 
 This section of the documentation was primarily written by `atenfyr <https://github.com/atenfyr>`_.
 
-Contents:
-
 .. toctree::
+   :caption: Contents
    :maxdepth: 3
 
    standards
