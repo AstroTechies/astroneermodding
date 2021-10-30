@@ -5,30 +5,18 @@ This documentation site includes the formal standards that mods for the game Ast
 
 If you need help feel free to check out the `Astroneer Modding Discord <https://discord.gg/bBqdVYxu4k>`_.
 
-Check out the :doc:`standards` section for formal standards mods should follow 
-like :ref:`metadata` and :ref:`indexfile`.
+Formal standards can be found in the :doc:`standards` section which includes the :ref:`metadata` and the :ref:`indexfile`.
 
-If you want to learn how to actually make mods checkout the :ref:`guides` section.
+If you want to learn how to actually make mods checkout the :doc:`guides` section.
 
-.. note::
-
-   This site is not affiliated with System Era in any way and is exclusively community-run.
-   Also Astroneer has no official mod support and everything is community-built.
-
+.. include:: notice.rst
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
    :glob:
-
    *
 
-
-.. 
-   Indices and tables
-   ==================
-
-   * :ref:`genindex`
-   * :ref:`modindex`
-   * :ref:`search`
+   :hidden:
+   notice
