@@ -82,7 +82,7 @@ The following is a list of fields that can be specified within the root object o
    and follows the same restrictions and recommendations described within the :ref:`filename` section.
    This field is represented as a string, and is REQUIRED.
 
--  ``astro_build``: The Astroneer build for which the mod was built. This field is represented as a string, and is OPTIONAL. It defaults to ``null``,
+-  ``game_build``: The Astroneer build for which the mod was built. This field is represented as a string, and is OPTIONAL. It defaults to ``null``,
    which is generally understood to mean that the mod works regardless of the current Astroneer build.
 
 -  ``sync``: The sync mode between servers and clients. This field is represented as a string, and is OPTIONAL, defaulting to ``"serverclient"``.

@@ -129,6 +129,8 @@ Fill this file out like this
         }
     }
 
+Replace ``YOUR_NAME`` with your name.
+
 What this file will do is tell modloader the info about this mod and which files to register with Astroneer.
 
 ``/Game/Items/ItemTypes/MasterItemList$ItemTypes`` contains ItemTypes for all items so we register our ItemType with this.

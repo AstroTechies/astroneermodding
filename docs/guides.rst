@@ -5,4 +5,4 @@ Making Mods
 
 * :doc:`modsGettingStarted`
 * :doc:`developingFirstMod`
-
+* :doc:`addingMissions`
