@@ -138,7 +138,7 @@ As an example, here is a valid ``metadata.json`` file incorporating all of the d
        "author": "ExampleModder123",
        "description": "Adds a coordinate display that toggles with the F3 key.",
        "version": "0.1.0",
-       "astro_build": "1.19.143.0",
+       "game_build": "1.19.143.0",
        "sync": "client",
        "homepage": "https://example.com",
        "download": {
