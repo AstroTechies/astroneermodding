@@ -39,7 +39,7 @@ of the main game assets found in the ``Astro-WindowsNoEditor.pak`` file.
 
 -  ``{PRIORITY}`` represents a 3-digit number, such as ``001`` or ``005``. Larger numbers are generally loaded later by the engine, so they always
    have priority when multiple mods override the same file. Most mods will likely want to use a priority of ``000`` or ``001``, but in some cases,
-   higher priorities are called for. The priority level ``999`` is reserved for external applications, and MUST NOT be used by regular mods.
+   higher priorities are called for. The priority levels ``9xx`` is reserved for external applications, and MUST NOT be used by regular mods.
 
 -  ``{MOD ID}`` is any alphanumeric string representing the ID (and, roughly, the name) of the mod, as a means of distinguishing it from other mods.
    Mod IDs MUST NOT contain any characters other than uppercase ASCII letters, lowercase ASCII letters, and the digits zero through nine;
@@ -213,5 +213,3 @@ As an example, here is a valid index file:
            }
        }
    }
-
-
