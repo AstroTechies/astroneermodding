@@ -1,17 +1,15 @@
-.. _standards:
-
 Modding standards
 =================
 
-This section of the documentation was primarily written by `atenfyr <https://github.com/atenfyr>`_.
-
-.. toctree::
-   :caption: Contents
-   :maxdepth: 3
-
-   standards
+.. contents:: Contents
+    :depth: 3
 
 .. include:: notice.rst
+
+
+.. _standards:
+
+This section of the documentation was primarily written by `atenfyr <https://github.com/atenfyr>`_.
 
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", 

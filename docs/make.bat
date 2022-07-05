@@ -1,5 +1,7 @@
 @ECHO OFF
 
+rmdir .\_build /s /q
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (

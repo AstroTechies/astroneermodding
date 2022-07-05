@@ -6,16 +6,16 @@ guides for actually creating mods.
 
 If you need help feel free to check out the `Astroneer Modding Discord <https://discord.gg/bBqdVYxu4k>`_.
 
-Formal standards can be found in the :doc:`standards` section which includes the :ref:`metadata` and the :ref:`indexfile`.
+Formal standards can be found in the :doc:`standards/index` section which includes the :ref:`metadata` and the :ref:`indexfile`.
 
-If you want to learn how to actually make mods checkout the :doc:`guides` section.
+If you want to learn how to actually make mods checkout the :doc:`guides/index` section.
 
 .. include:: notice.rst
 
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   standards
-   guides
+   standards/index
+   guides/index

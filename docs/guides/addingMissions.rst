@@ -1,15 +1,11 @@
 Adding Missions
-======================
+===============
 
-.. toctree:: 
-    :caption: Contents
-    :maxdepth: 3
+.. contents:: Contents
+    :depth: 3
 
-    addingMissions
-
-.. _missions:
 Adding the Mission Trailhead
-=============================
+----------------------------
 
 Right click in the **Content Browser** and add a folder called ``Missions``.
 
@@ -58,9 +54,8 @@ This should provide us with a basic mission for the player to complete.
 
 Now we must add it to our mod.
 
-.. _addingToMod:
 Adding Mission Trailhead to the Mod
-====================================
+-----------------------------------
 
 As usual cook the content and move it to the mod folder, ``metadata.json`` will be used from :doc:`developingFirstMod` with some changes.
 

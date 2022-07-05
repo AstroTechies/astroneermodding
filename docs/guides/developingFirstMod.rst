@@ -1,23 +1,18 @@
 Developing your first mod
 ==========================
 
-.. toctree:: 
-    :caption: Contents
-    :maxdepth: 3
+.. contents:: Contents
+    :depth: 3
 
-    developingFirstMod
-
-.. _modFolder:
 Creating the mod folder
-========================
+-----------------------
 
 To begin making mods you need to create a folder for your mod. 
 
 For this tutorial we will create the folder in ``Examples`` and call it ``TutorialMod``.
 
-.. _creatingItem:
 Creating an item
-=================
+----------------
 
 Items in Astroneer consist of two components, ItemType and PhysicalItem.
 
@@ -25,9 +20,9 @@ ItemType is used by Astroneer to get your item's recipe, menu icon, item propert
 
 PhysicalItem is the object that is going to be created in the world.
 
-.. _physicalItem:
+
 Creating the PhysicalItem
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a blueprint class with name ``ExampleItem_BP`` and in the creation dialogue open All classes.
 
@@ -38,8 +33,9 @@ First of all we want to set the model for that item so that we have something to
 For that we will need to :ref:`import the mesh <importingMesh>`
 
 .. _importingMesh:
+
 Importing the mesh
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
 
     1. Open your mod folder in the **Content Browser**
     2. Download this example mesh :download:`exampleMesh.fbx`
@@ -58,9 +54,8 @@ There in the **Details** tab set your mesh in ``Static Mesh`` field.
 
 Click on **Compile** and then **Save**.
 
-.. _itemType:
 Creating the ItemType
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 Now that we have created the PhysicalItem it's time to make the ItemType for it.
 
@@ -93,9 +88,8 @@ Open **Control Symbol** section and fill the fields out like this:
 * **Tooltip Subtitle**: ``Test Item``
 * **Description**: ``This is a test item.``
 
-.. _cookingMod:
 Cooking the mod
-================
+---------------
 
 Click on **File** > **Cook Content for Windows**
 
@@ -137,7 +131,7 @@ What this file will do is tell modloader the info about this mod and which files
 
 ``/Game/Items/BackpackRail$PrinterComponent.Blueprints`` contains ItemTypes that can be crafted so we need to register here too.
 
-More info about the format can be found in :doc:`standards`
+More info about the format can be found in :doc:`../standards/index`
 
 
 Now that the content has cooked go to the project folder.
