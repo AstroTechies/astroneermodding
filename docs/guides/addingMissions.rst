@@ -71,7 +71,7 @@ So the file looks like this:
 
 .. code-block:: JSON
 
-        {
+    {
         "schema_version": 1,
         "name": "Tutorial Mod",
         "mod_id": "TutorialMod",

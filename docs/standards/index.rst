@@ -4,7 +4,7 @@ Modding standards
 .. contents:: Contents
     :depth: 3
 
-.. include:: notice.rst
+.. include:: ../notice.rst
 
 
 .. _standards:
