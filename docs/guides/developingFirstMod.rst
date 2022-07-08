@@ -9,7 +9,7 @@ Creating the mod folder
 
 To begin making mods you need to create a folder for your mod. 
 
-For this tutorial we will create the folder in ``Examples`` and call it ``TutorialMod``.
+For this tutorial we will create the folder in ``Mods/YOUR_USERNAME`` and call it ``TutorialMod``.
 
 Creating an item
 ----------------
@@ -112,12 +112,12 @@ Fill this file out like this
         "item_list_entries": {
             "/Game/Items/ItemTypes/MasterItemList": {
                 "ItemTypes": [
-                    "/Game/Examples/TutorialMod/TestItem_IT"
+                    "/Game/Mods/YOUR_USERNAME/TutorialMod/TestItem_IT"
                 ]
             },
             "/Game/Items/BackpackRail": {
                 "PrinterComponent.Blueprints": [
-                    "/Game/Examples/TutorialMod/TestItem_IT"
+                    "/Game/Mods/YOUR_USERNAME/TutorialMod/TestItem_IT"
                 ]
             }
         }
@@ -136,7 +136,12 @@ More info about the format can be found in :doc:`../standards/index`
 
 Now that the content has cooked go to the project folder.
 
-From there navigate to ``Saved/Cooked/WindowsNoEditor/Astro/Content/Examples`` and copy ``TutorialMod`` folder to the folder we created earlier.
+From there navigate to ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and copy ``TutorialMod`` folder to the folder we created earlier.
+
+.. warning:: 
+    Files in ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and ``Content/Mods/YOUR_USERNAME`` are different.
+    The first location contains the cooked files, while the second one contains the uncooked ones.
+    You **MUST** copy from the first location because the game only accepts cooked ones.
 
 Now that the mod structure is complete, time to pack the mod.
 
