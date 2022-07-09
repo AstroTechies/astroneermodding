@@ -99,3 +99,5 @@ of two assets, ItemType and PhysicalItem.
 
 Also keep in mind that the Astroneer game files are very messy and it can be hard to find stuff.
 Windows search is your biggest help.
+
+To get started go to the :doc:`settingUp`.
