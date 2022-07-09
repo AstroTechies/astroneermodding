@@ -100,4 +100,10 @@ of two assets, ItemType and PhysicalItem.
 Also keep in mind that the Astroneer game files are very messy and it can be hard to find stuff.
 Windows search is your biggest help.
 
-To get started go to the :doc:`settingUp`.
+Getting Help
+------------
+
+If you ever need help or stuck with a mod you are trying to make ask in the
+`Astroneer Modding Discord <https://discord.gg/bBqdVYxu4k>`_ in the #making-mods-help channel.
+
+To get started go to the :doc:`settingUp` section.

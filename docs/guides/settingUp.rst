@@ -50,7 +50,7 @@ Opening an asset
 ----------------
 
 Go to ``AstroneerModding\GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes`` and double click
-on ``FloodLight_IT.uassets``. Since you probably have not opened one of these files before Windows
+on ``FloodLight_IT.uasset``. Since you probably have not opened one of these files before Windows
 will ask you for a program. Select show more etc. and then browse to and select the
 ``UAssetGUI.exe`` we extracted earlier. This will set UAssetGUI as the default program for .uasset
 files.
