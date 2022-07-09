@@ -28,7 +28,7 @@ Right click both .bat files and select ``Create Shortcut``. Then press ``Win+R``
 ``Shell:sendto``. This will open a new window. Drag both shortcuts into that window. Then rename
 them ``Repack folder with unreal_pak_cli`` and ``Unpack .pak with unreal_pak_cli``.
 
-Extracting the game files
+Extracting the Game Files
 -------------------------
 
 First create a new folder in your ``AstroneerModding`` folder called ``GameFiles``. This will be
@@ -46,7 +46,7 @@ UAssetGUI is tool for viewing and editing cooked .uasset files. Downlaod the lat
 `GitHub <https://github.com/atenfyr/UAssetGUI/releases>`_. Extract the .zip file to your
 ``AstroneerModding`` folder.
 
-Opening an asset
+Opening an Asset
 ----------------
 
 Go to ``AstroneerModding\GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes`` and double click

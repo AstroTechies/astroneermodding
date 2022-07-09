@@ -57,7 +57,7 @@ Now we must add it to our mod.
 Adding Mission Trailhead to the Mod
 -----------------------------------
 
-As usual cook the content and move it to the mod folder, ``metadata.json`` will be used from :doc:`developingFirstMod` with some changes.
+As usual cook the content and move it to the mod folder, ``metadata.json`` will be used from :doc:`kitModding` with some changes.
 
 We need to add this to our metadata for the modloader to add it into Astroneer mission system.
 
@@ -96,4 +96,4 @@ So the file looks like this:
         ]
     }
 
-Now cook the mod as in :doc:`developingFirstMod` and check it out!
+Now cook the mod as in :doc:`kitModding` and check it out!

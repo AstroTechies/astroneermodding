@@ -17,7 +17,7 @@ Next create another folder inside the ``TutorialMod`` folder called ``000-Tutori
 This name matches what the mod .pak file will later be called. You can read more on the
 specifications for mod .pak files in the :ref:`filename` section of the documentation.
 
-Creating metadata.json file
+Creating metadata.json File
 ---------------------------
 
 Each mod must have a metadata.json file at the root. This file contains information about the mod.

@@ -1,17 +1,17 @@
-Developing your first mod
-==========================
+Adding Custom Items with the Unreal Editor
+==========================================
 
 .. contents:: Contents
     :depth: 3
 
-Creating the mod folder
+Creating the Mod Folder
 -----------------------
 
 To begin making mods you need to create a folder for your mod. 
 
 For this tutorial we will create the folder in ``Mods/YOUR_USERNAME`` and call it ``TutorialMod``.
 
-Creating an item
+Creating an Item
 ----------------
 
 Items in Astroneer consist of two components, ItemType and PhysicalItem.
@@ -34,7 +34,7 @@ For that we will need to :ref:`import the mesh <importingMesh>`
 
 .. _importingMesh:
 
-Importing the mesh
+Importing the Mesh
 """"""""""""""""""
 
     1. Open your mod folder in the **Content Browser**
@@ -88,7 +88,7 @@ Open **Control Symbol** section and fill the fields out like this:
 * **Tooltip Subtitle**: ``Test Item``
 * **Description**: ``This is a test item.``
 
-Cooking the mod
+Cooking the Mod
 ---------------
 
 Click on **File** > **Cook Content for Windows**

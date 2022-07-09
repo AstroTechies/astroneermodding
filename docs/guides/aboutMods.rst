@@ -33,7 +33,7 @@ directory structure inside. This includes information like the mod name, author,
 updates and some special instruction for the mod integrator, which is responsible for avoiding
 conflicts between mods.
 
-Unreal Asset files
+Unreal Asset Files
 ------------------
 
 All the actual game data like values, textures, models, some code and much more is stored in Unreal
@@ -106,4 +106,4 @@ Getting Help
 If you ever need help or stuck with a mod you are trying to make ask in the
 `Astroneer Modding Discord <https://discord.gg/bBqdVYxu4k>`_ in the #making-mods-help channel.
 
-To get started go to the :doc:`settingUp` section.
+To get started go to the :doc:`basicSetup` section.
