@@ -33,7 +33,7 @@ following JSON into the file. Make sure to replace ``YOUR_NAME`` with your name.
         "author": "YOUR_NAME",
         "description": "A tutorial mod.",
         "version": "0.1.0",
-        "sync": "serverclient",
+        "sync": "serverclient"
     }
 
 Finding the Asset to modify
