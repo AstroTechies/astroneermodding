@@ -45,14 +45,14 @@ flood light. Sometimes finding the proper file can hard, but Windows search can 
 
 The asset file we are looking for is located at 
 ``GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
-``GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.ubulk``.
+``GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uexp``.
 It is important to remember that each asset is split into two files and you always need to keep
 both together. Now we are going to copy the files over to our folder so that we can modify them.
 You should never modify the files in your ``GameFiles`` folder.
 
 Copy them to
 ``TutorialMod\000-TutorialMod-0.1.0_P\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
-``TutorialMod\000-TutorialMod-0.1.0_P\Astro\Content\Items\ItemTypes\FloodLight_IT.ubulk``.
+``TutorialMod\000-TutorialMod-0.1.0_P\Astro\Content\Items\ItemTypes\FloodLight_IT.uexp``.
 You will have to create the folders if they do not exist yet. It is very import that the files have
 the exact same folder structure as the game.
 
