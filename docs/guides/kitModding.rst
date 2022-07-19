@@ -117,7 +117,7 @@ Fill this file out like this
             },
             "/Game/Items/BackpackRail": {
                 "PrinterComponent.Blueprints": [
-                    "/Game/Mods/YOUR_USERNAME/TutorialMod/TestItem_IT"
+                    "/Game/Mods/YOUR_USERNAME/TutorialMod/TestItem_BP"
                 ]
             }
         }

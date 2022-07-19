@@ -35,18 +35,16 @@ To develop your mods you will need a modkit which can be downloaded from
 
 If you are familiar with version control software you should clone it for easier updates.
 
-After cloning you need to generate the project files.
-
-Open cmd in your project directory and copy this inside cmd. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder and **PATH_TO_PROJECT** with path to the modkit.
-
-Unreal engine installation folder is usually found at ``C:\\Program Files\\Epic Games\UE_4.23\\``.
-
-
+After cloning you need to generate the project files. To generate the project files we will need to run the following command:
 
 .. code-block:: 
 
     "UE_INSTALL_PATH\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="PATH_TO_PROJECT\\Astro.uproject" -game -rocket -progress
 
+
+Open cmd in your project directory and copy this inside cmd. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder which is usually found at ``C:\\Program Files\\Epic Games\UE_4.23\\``.
+
+And remember to change **PATH_TO_PROJECT** with path to the modkit.
 
 Example:
 
@@ -54,8 +52,7 @@ Example:
 
     "C:\Program Files\Epic Games\UE_4.23\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="C:\\Users\\username\\Documents\\Astro.uproject" -game -rocket -progress
 
-
-Then open the ``Astro.uproject`` file and if it asks to build unbuilt modules press yes and wait.
+Run the command, and then open the ``Astro.uproject`` file and if it asks to build unbuilt modules press yes and wait.
 
 Developing Mods
 ---------------
