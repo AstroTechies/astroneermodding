@@ -75,8 +75,14 @@ This is a simple item so we will leave most of the options untouched, you can ex
 - ``Base Item Type`` in **Catalog Data** is used to determine where in the item catalog the item will be listed.
 - ``Varitation Sequence Number`` in **Catalog Data** is used to determine the order in which the item will be listed in the item catalog.
 - ``Catalog Mesh`` in **Catalog Data** is used to determine the mesh that will be displayed in the item catalog.
+- ``Is Base Item`` in **Catalog Data** is used to determine whether this item will create it's own line inside the catalog or use an existing one from a base item.
+
+.. warning:: 
+    If you set ``Is Base Item`` and ``Base Item Type`` simultaneously the item **WILL NOT** show up in the catalog.
 
 Set ``Base Item Type`` to ``Consumable_JumpJet_IT`` so it gets listed near jetpacks and hoverboards.
+
+Untick ``Is Base Item``.
 
 Set ``Catalog Mesh`` to the mesh we imported earlier.
 
