@@ -139,10 +139,11 @@ What this file will do is tell modloader the info about this mod and which files
 
 More info about the format can be found in :doc:`../standards/index`
 
+Also create the folder structure inside this folder as follows ``Astro/Content/Mods``.
 
-Now that the content has cooked go to the project folder.
+After the content has cooked, go to the project folder and navigate to ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and copy ``TutorialMod`` folder to ``Astro/Content/Mods``.
 
-From there navigate to ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and copy ``TutorialMod`` folder to the folder we created earlier.
+So that the final result looks like this ``Astro/Content/Mods/TutorialMod``.
 
 .. warning:: 
     Files in ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and ``Content/Mods/YOUR_USERNAME`` are different.
