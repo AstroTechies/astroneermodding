@@ -44,8 +44,8 @@ We want to change the byte cost of the flood light so we need to find the ItemTy
 flood light. Sometimes finding the proper file can hard, but Windows search can help.
 
 The asset file we are looking for is located at 
-``GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
-``GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uexp``.
+``GameFiles\Astro-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
+``GameFiles\Astro-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uexp``.
 It is important to remember that each asset is split into two files and you always need to keep
 both together. Now we are going to copy the files over to our folder so that we can modify them.
 You should never modify the files in your ``GameFiles`` folder.
@@ -77,7 +77,8 @@ At the very top of the table view there is an ``UnlockCost`` property with a num
 Simply the change the number to what amount of bytes you would like the flood ligth to cost. For
 example ``500``.
 
-Then simply press ``Ctrl+S`` to save the file.
+Then simply press ``Ctrl+S`` to save the file, or click on ``File > Save``.  You should see two ``.bak`` 
+files appear.  Ignore these files, they are simply backup files and are ignored by the software.
 
 Packing the Mod
 ---------------
@@ -89,6 +90,12 @@ Then select ``Send to > Repack folder with unreal_pak_cli``. This will create a
 Installing the Mod
 ------------------
 
-Simply darg the newly created the ``000-TutorialMod-0.1.0_P.pak`` file onto the Modloader window and
-you should see ``Tutorial Mod`` appear in the mod list. Make sure it is enabled and start your
-game. Then head to the catalog and check that the flood light is now costs 500 bytes.
+Double-check that the .pak file in the ``TutorialMod`` folder is named correctly.  If not, rename it to 
+``000-TutorialMod-0.1.0_P.pak``.  Once you have verified that the name is correct, simply drag the newly 
+created ``000-TutorialMod-0.1.0_P.pak`` file onto the Modloader window and
+you should see ``Tutorial Mod`` appear in the mod list. Make sure it is enabled in the modloader window.
+
+Verifying the mod works
+-----------------------
+
+If the mod loads into the modloader without issues, start your game. If the modloader has issues loading the mod, double check that you followed the tutorial exactly.  Then head to the catalog and check that the flood light is now costs 500 bytes.  If your mod has other issues that you need additional help with, joining the Astroneer Modding Discord is your best bet.
