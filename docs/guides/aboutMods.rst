@@ -1,4 +1,4 @@
-About Astroneer Moddding
+About Astroneer Modding
 ========================
 
 .. contents:: Contents
@@ -12,9 +12,9 @@ About Astroneer
 ---------------
 
 Astroneer uses a slightly modified version of Unreal Engine 4.23.1. Modding Unreal Engine games
-is hard but not impossible.
+is hard, but not impossible.
 
-Doing number tweaks for stuff like power values is quite simple to do but adding your own logic
+Doing small tweaks for stuff like power values is quite simple, but adding your own logic
 or items takes a lot of time.
 
 Unreal Pak Files
