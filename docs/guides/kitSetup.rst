@@ -30,8 +30,7 @@ Select 4.23.x where x can be any number, and press install.
 Modding Kit
 -----------
 
-To develop your mods you will need a modkit which can be downloaded from 
-`this link <https://github.com/AstroTechies/ModdingKit>`_.
+To develop mods, you will need a modkit - which can be downloaded `here <https://github.com/AstroTechies/ModdingKit>`_.
 
 If you are familiar with version control software you should clone it for easier updates.
 
@@ -42,7 +41,7 @@ After cloning you need to generate the project files. To generate the project fi
     "UE_INSTALL_PATH\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="PATH_TO_PROJECT\\Astro.uproject" -game -rocket -progress
 
 
-Open cmd in your project directory and copy this inside cmd. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder which is usually found at ``C:\\Program Files\\Epic Games\UE_4.23\\``.
+Navigate to your mod's files and type ``cmd`` into the search bar to open command prompt, then paste this inside. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder which is usually found at ``C:\\Program Files\\Epic Games\UE_4.23\\``.
 
 And remember to change **PATH_TO_PROJECT** with path to the modkit.
 
