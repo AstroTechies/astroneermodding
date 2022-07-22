@@ -4,8 +4,8 @@ Basic Modding
 .. contents:: Contents
     :depth: 3
 
-In this section you will learn how to create your first mod. We will simply be reducing the byte
-cost of the flood light.
+In this section you will learn how to create your first mod. We will start by simply reducing the byte
+cost of the Floodlight.
 
 Setting up Folders
 ------------------
@@ -40,8 +40,8 @@ Finding the Asset to modify
 ---------------------------
 
 Because we are modifying an item that is already in the game we need to find the asset of the item.
-We want to change the byte cost of the flood light so we need to find the ItemType asset of the
-flood light. Sometimes finding the proper file can hard, but Windows search can help.
+We want to change the byte cost of the floodlight so we need to find the ItemType asset of the
+floodlight. Sometimes finding the proper file can hard, but Windows search can help.
 
 The asset file we are looking for is located at 
 ``GameFiles\Astro-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
@@ -74,8 +74,8 @@ Click on ``ItemCatalogData(7)`` to see the contents of the catalog data. This ex
 structure.
 
 At the very top of the table view there is an ``UnlockCost`` property with a number to the right.
-Simply the change the number to what amount of bytes you would like the flood ligth to cost. For
-example ``500``.
+Simply the change the number to what amount of bytes you would like the floodlight to cost. For
+example, ``500``.
 
 Then simply press ``Ctrl+S`` to save the file, or click on ``File > Save``.  You should see two ``.bak`` 
 files appear.  Ignore these files, they are simply backup files and are ignored by the software.
@@ -98,4 +98,4 @@ you should see ``Tutorial Mod`` appear in the mod list. Make sure it is enabled 
 Verifying the mod works
 -----------------------
 
-If the mod loads into the modloader without issues, start your game. If the modloader has issues loading the mod, double check that you followed the tutorial exactly.  Then head to the catalog and check that the flood light is now costs 500 bytes.  If your mod has other issues that you need additional help with, joining the Astroneer Modding Discord is your best bet.
+If the mod loads into the modloader without issues, start your game. If the modloader has issues loading the mod, double check that you followed the tutorial exactly.  Then head to the catalog and check that the floodlight is now costs 500 bytes.  If your mod has other issues that you need additional help with, joining the Astroneer Modding Discord is your best bet.
