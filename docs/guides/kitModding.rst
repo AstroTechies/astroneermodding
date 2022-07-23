@@ -65,7 +65,7 @@ Select ItemType to inherit from, create and open the class.
 
 This is a simple item so we will leave most of the options untouched, you can experiment with them yourself and see what they do.
 
-* Set **Pickup Actor** to be ``TestItem_BP``.
+* Set **Pickup Actor** to be ``ExampleItem_BP``.
 * Open **Construction Recipe**
     * Press "+" on the **Ingredients** field.
     * Set Item type of the ingredient to **Astronium**
@@ -89,10 +89,10 @@ Set ``Catalog Mesh`` to the mesh we imported earlier.
 
 Open **Control Symbol** section and fill the fields out like this:
 
-* **Name**: ``TestItem``
-* **All caps Name**: ``TESTITEM``
-* **Tooltip Subtitle**: ``Test Item``
-* **Description**: ``This is a test item.``
+* **Name**: ``ExampleItem``
+* **All caps Name**: ``EXAMPLEITEM``
+* **Tooltip Subtitle**: ``Example Item``
+* **Description**: ``This is an example item.``
 
 Cooking the Mod
 ---------------
@@ -118,12 +118,12 @@ Fill this file out like this
         "item_list_entries": {
             "/Game/Items/ItemTypes/MasterItemList": {
                 "ItemTypes": [
-                    "/Game/Mods/YOUR_USERNAME/TutorialMod/TestItem_IT"
+                    "/Game/Mods/YOUR_USERNAME/TutorialMod/ExampleItem_IT"
                 ]
             },
             "/Game/Items/BackpackRail": {
                 "PrinterComponent.Blueprints": [
-                    "/Game/Mods/YOUR_USERNAME/TutorialMod/TestItem_BP"
+                    "/Game/Mods/YOUR_USERNAME/TutorialMod/ExampleItem_BP"
                 ]
             }
         }

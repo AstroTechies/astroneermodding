@@ -48,7 +48,7 @@ Press "+" on **Objectives**
 
 And now we can go ahead and add the reward, in this case we will give the player the TestItem.
 
-Press "+" on **Rewards** and set the reward type to be ``TestItem_IT`` and the value to 1.
+Press "+" on **Rewards** and set the reward type to be ``ExampleItem_BP`` and the value to 1.
 
 This should provide us with a basic mission for the player to complete.
 
@@ -82,12 +82,12 @@ So the file looks like this:
         "item_list_entries": {
             "/Game/Items/ItemTypes/MasterItemList": {
                 "ItemTypes": [
-                    "/Game/Examples/TutorialMod/TestItem_IT"
+                    "/Game/Examples/TutorialMod/ExampleItem_IT"
                 ]
             },
             "/Game/Items/BackpackRail": {
                 "PrinterComponent.Blueprints": [
-                    "/Game/Examples/TutorialMod/TestItem_IT"
+                    "/Game/Examples/TutorialMod/ExampleItem_BP"
                 ]
             }
         },
