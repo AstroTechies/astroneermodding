@@ -9,7 +9,13 @@ Creating the Mod Folder
 
 To begin making mods you need to create a folder for your mod. 
 
-For this tutorial we will create the folder in ``Mods/YOUR_USERNAME`` and call it ``TutorialMod``.
+After opening the unreal editor you will need to make a folder for your mod.
+
+In the content browser head to ``Mods`` folder and create a folder ``YOUR_USERNAME``, and open that folder.
+
+You probably would want to change ``YOUR_USERNAME`` to your actual username.
+
+Inside that folder create a folder called ``TutorialMod`` and open it.
 
 Creating an Item
 ----------------
