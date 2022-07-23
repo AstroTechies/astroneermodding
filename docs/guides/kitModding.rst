@@ -7,9 +7,7 @@ Adding Custom Items with the Unreal Editor
 Creating the Mod Folder
 -----------------------
 
-To begin making mods you need to create a folder for your mod. 
-
-After opening the unreal editor you will need to make a folder for your mod.
+After opening the project in unreal editor you will need to make a folder for your mod.
 
 In the content browser head to ``Mods`` folder and create a folder ``YOUR_USERNAME``, and open that folder.
 
