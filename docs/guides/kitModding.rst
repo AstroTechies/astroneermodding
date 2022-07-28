@@ -84,11 +84,12 @@ This is a simple item so we will leave most of the options untouched, you can ex
 .. warning:: 
     If you set ``Is Base Item`` and ``Base Item Type`` simultaneously the item **WILL NOT** show up in the catalog.
 
-Set ``Base Item Type`` to ``Consumable_JumpJet_IT`` so it gets listed near jetpacks and hoverboards.
+* Set **Base Item Type** to ``Consumable_JumpJet_IT`` so it gets listed near jetpacks and hoverboards.
+* Untick **Is Base Item**.
+* Set **Catalog Mesh** to the mesh we imported earlier.
+* Set **Crate Overlay Texture** to ``ui_icon_package_drill``. This is used to determine the icon that will be displayed on the packaged item.
+* Set **Widget Icon** to ``ui_icon_comp_drill``. This is used to determine the icon that will be displayed in the item catalog and on hovering on the item.
 
-Untick ``Is Base Item``.
-
-Set ``Catalog Mesh`` to the mesh we imported earlier.
 
 
 Open **Control Symbol** section and fill the fields out like this:
@@ -98,14 +99,29 @@ Open **Control Symbol** section and fill the fields out like this:
 * **Tooltip Subtitle**: ``Example Item``
 * **Description**: ``This is an example item.``
 
+
+Linking ItemType and BP together
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now open the ``ExampleItem_BP`` yet again, and click on **ItemComponent**. 
+
+On the right open the **Item Component** dropdown, there, set the **Item Type** to ``ExampleItem_IT``.
+
 Cooking the Mod
 ---------------
 
+Remember to save every asset you have changed before cooking.
+
 Click on **File** > **Cook Content for Windows**
 
-While the content is being cooked create a folder in file explorer with the name ``000-TutorialMod-0.1.0_P`` and open it.
+After the content has been cooked, create a folder in file explorer with the name ``000-TutorialMod-0.1.0_P`` and open this folder.
 
-Inside this folder create a file called ``metadata.json``
+.. note:: 
+    This folder must be outside of unreal project.
+
+Inside this folder create a file called ``metadata.json``.
+
+This file is responsible for telling the modloader where to find mod files for certain parts of the mod.
 
 Fill this file out like this
 
@@ -135,22 +151,33 @@ Fill this file out like this
 
 Replace ``YOUR_NAME`` with your name.
 
-What this file will do is tell modloader the info about this mod and which files to register with Astroneer.
-
 ``/Game/Items/ItemTypes/MasterItemList$ItemTypes`` contains ItemTypes for all items so we register our ItemType with this.
 
 ``/Game/Items/BackpackRail$PrinterComponent.Blueprints`` contains ItemTypes that can be crafted so we need to register here too.
 
 More info about the format can be found in :doc:`../standards/index`
 
-Also create the folder structure inside this folder as follows ``Astro/Content/Mods``.
+In this folder, also create a folder structure like this ``Astro/Content/Mods/YOUR_USERNAME``.
 
-After the content has cooked, go to the project folder and navigate to ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and copy ``TutorialMod`` folder to ``Astro/Content/Mods``.
+Now go to the unreal project folder and navigate to ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and copy ``TutorialMod`` folder to the folder we created previously.
 
-So that the final result looks like this ``Astro/Content/Mods/TutorialMod``.
+So that the folder structure looks like this:
+
+.. code-block:: 
+
+    000-TutorialMod-0.1.0_P
+        ├───metadata.json
+        │
+        └───Astro
+            └───Content
+                └───Mods
+                    └───YOUR_USERNAME
+                        └───TutorialMod
+
 
 .. warning:: 
-    Files in ``Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and ``Content/Mods/YOUR_USERNAME`` are different.
+    Files in ``UE_PROJECT/Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and ``UE_PROJECT/Content/Mods/YOUR_USERNAME`` are different.
+    Where UE_PROJECT is the path to unreal project.
     The first location contains the cooked files, while the second one contains the uncooked ones.
     You **MUST** copy from the first location because the game only accepts cooked ones.
 
