@@ -93,31 +93,33 @@ This is an example of what your file should look like
 .. code-block:: JSON
 
     {
-        "schema_version": 1,
+        "schema_version": 2,
         "name": "ExampleMod",
         "mod_id": "ExampleMod",
         "author": "YOUR_NAME",
         "description": "An Example Mod",
         "version": "0.1.0",
         "sync": "serverclient",
-        "item_list_entries": {
-            "/Game/Items/ItemTypes/MasterItemList": {
-                "ItemTypes": [
-                    "/Game/Mods/YOUR_NAME/TutorialMod/ExampleItem_IT"
-                ]
-            }
-        },
-        "biome_placement_modifiers": [
-            {
-                "planet_type": "Terran",
-                "biome_type": "Surface",
-                "biome_name": "Plains",
-                "layer_name": "None",
-                "placements": [
-                    "/Game/Mods/YOUR_NAME/TutorialMod/Plains_Terran_Puzzles"
-                ]
-            }
-        ]
+        "integrator": {
+            "item_list_entries": {
+                "/Game/Items/ItemTypes/MasterItemList": {
+                    "ItemTypes": [
+                        "/Game/Mods/YOUR_NAME/TutorialMod/ExampleItem_IT"
+                    ]
+                }
+            },
+            "biome_placement_modifiers": [
+                {
+                    "planet_type": "Terran",
+                    "biome_type": "Surface",
+                    "biome_name": "Plains",
+                    "layer_name": "None",
+                    "placements": [
+                        "/Game/Mods/YOUR_NAME/TutorialMod/Plains_Terran_Puzzles"
+                    ]
+                }
+            ]
+        }
     }
 
 
@@ -189,31 +191,33 @@ Our metadata.json file should look something like this:
 .. code-block:: JSON
 
     {
-        "schema_version": 1,
+        "schema_version": 2,
         "name": "ExampleMod",
         "mod_id": "ExampleMod",
         "author": "YOUR_NAME",
         "description": "An Example Mod",
         "version": "0.1.0",
         "sync": "serverclient",
-        "item_list_entries": {
-            "/Game/Items/ItemTypes/MasterItemList": {
-                "ItemTypes": [
-                    "/Game/Mods/YOUR_NAME/TutorialMod/ExampleItem_IT"
-                ]
-            }
-        },
-        "biome_placement_modifiers": [
-            {
-                "planet_type": "Exotic",
-                "biome_type": "Surface",
-                "biome_name": "Valleys_Exotic",
-                "layer_name": "None",
-                "placements": [
-                    "/Game/Mods/YOUR_NAME/TutorialMod/Valleys_Exotic_Puzzles"
-                ]
-            }
-        ]
+        "integrator": {
+            "item_list_entries": {
+                "/Game/Items/ItemTypes/MasterItemList": {
+                    "ItemTypes": [
+                        "/Game/Mods/YOUR_NAME/TutorialMod/ExampleItem_IT"
+                    ]
+                }
+            },
+            "biome_placement_modifiers": [
+                {
+                    "planet_type": "Exotic",
+                    "biome_type": "Surface",
+                    "biome_name": "Valleys_Exotic",
+                    "layer_name": "None",
+                    "placements": [
+                        "/Game/Mods/YOUR_NAME/TutorialMod/Valleys_Exotic_Puzzles"
+                    ]
+                }
+            ]
+        }
     }
 
 Now cook the mod and verify you see objects spawning.

@@ -27,7 +27,7 @@ following JSON into the file. Make sure to replace ``YOUR_NAME`` with your name.
 .. code-block:: JSON
 
     {
-        "schema_version": 1,
+        "schema_version": 2,
         "name": "Tutorial Mod",
         "mod_id": "TutorialMod",
         "author": "YOUR_NAME",

@@ -72,28 +72,30 @@ So the file looks like this:
 .. code-block:: JSON
 
     {
-        "schema_version": 1,
+        "schema_version": 2,
         "name": "Tutorial Mod",
         "mod_id": "TutorialMod",
         "author": "YOUR_NAME",
         "description": "A tutorial mod.",
         "version": "0.1.0",
         "sync": "serverclient",
-        "item_list_entries": {
-            "/Game/Items/ItemTypes/MasterItemList": {
-                "ItemTypes": [
-                    "/Game/Examples/TutorialMod/ExampleItem_IT"
-                ]
+        "integrator": {
+            "item_list_entries": {
+                "/Game/Items/ItemTypes/MasterItemList": {
+                    "ItemTypes": [
+                        "/Game/Examples/TutorialMod/ExampleItem_IT"
+                    ]
+                },
+                "/Game/Items/BackpackRail": {
+                    "PrinterComponent.Blueprints": [
+                        "/Game/Examples/TutorialMod/ExampleItem_BP"
+                    ]
+                }
             },
-            "/Game/Items/BackpackRail": {
-                "PrinterComponent.Blueprints": [
-                    "/Game/Examples/TutorialMod/ExampleItem_BP"
-                ]
-            }
-        },
-        "mission_trailheads": [
-            "/Game/Examples/TutorialMod/Missions/MissionTrailhead-TutorialMod"
-        ]
+            "mission_trailheads": [
+                "/Game/Examples/TutorialMod/Missions/MissionTrailhead-TutorialMod"
+            ]
+        }
     }
 
 Now cook the mod as in :doc:`kitModding` and check it out!
