@@ -35,7 +35,53 @@ To develop your mods you will need a modkit which can be downloaded from
 
 If you are familiar with version control software you should clone it for easier updates.
 
-After cloning you need to generate the project files. To generate the project files we will need to run the following command:
+
+Wwise
+----------
+
+Astroneer uses Wwise as its sound engine. To develop mods you must install wwise.
+
+Go to `Wwise <https://www.audiokinetic.com/en/products/wwise>` website and head to ``Get Wwise`` -> ``Download Wwise``.
+
+If you don't already have an account, create one. After wwise installed has finished downloading, open it and select WWISE in the top bar.
+
+Click on latest and change it to ``All`` > ``2019.1`` > ``2019.1.8.7173`` and press install. Once presented with options select these:
+
+* Packages
+
+    * Authoring
+
+    * SDK (C++)
+
+* Deployment Platforms
+
+  * Apple
+
+      * macOS
+
+  * Microsoft
+
+      * Windows
+
+      * Visual Studio 2017
+
+      * Visual Studio 2019
+
+
+After it has finished installing go to ``Unreal Engine`` tab in the top bar. There press on the burger menu and ``Browse For Project``.
+
+Select ``Astro.uproject`` in the file picker. 
+
+Now press ``Integrate WWise into project``. Here select ``All`` > ``2019.1`` > ``2019.1.8.7173``.
+
+In the wwise project path field press on the triangle on the right side and click ``New``.
+
+Now press the ``Integrate`` button.
+
+Generating project files
+-------------------------
+
+To generate the project files we will need to run the following command:
 
 .. code-block:: 
 
