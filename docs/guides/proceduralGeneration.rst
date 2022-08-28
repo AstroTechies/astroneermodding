@@ -1,11 +1,11 @@
 Procedural Generation
-========================
+=====================
 
 .. contents:: Contents
     :depth: 3
 
 Procedural Generation 
------------------------
+---------------------
 
 .. note:: 
     This is an advanced topic, so it is preferred that you already have some experience modding Astroneer.
