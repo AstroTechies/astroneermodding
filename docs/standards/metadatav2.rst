@@ -81,50 +81,64 @@ The following is a list of fields that can be specified within the root object o
 
   -  ``biome_placement_modifiers``: Placement modifiers used for adding custom procedurally generated actors.
 
+- ``dependencies``: A json object containing dependencies that must be fetched for this mod to work.  
+  Dependency version requirements follow the `semver standard <https://semver.org/>`_.
+
 As an example, here is a valid ``metadata.json`` file incorporating all of the defined fields:
 
 .. code-block:: JSON
 
    {
-       "schema_version": 2,
-       "name": "Coordinate GUI",
-       "mod_id": "CoordinateGUI",
-       "author": "ExampleModder123",
-       "description": "Adds a coordinate display that toggles with the F3 key.",
-       "version": "0.1.0",
-       "game_build": "1.19.143.0",
-       "sync": "client",
-       "homepage": "https://example.com",
-       "download": {
-           "type": "index_file",
-           "url": "https://cdn.example.com/index.json"
-       },
-       "integrator": {
-           "persistent_actors": [
-               "/Game/ExampleModder123/ExampleGUI/ExampleGUIActor"
-           ],
-           "mission_trailheads": [
-               "/Game/ExampleModder123/ExampleMod/MissionTrailhead04-Example"
-           ],
-           "linked_actor_components": {
-               "/Game/Character/DesignAstro": [
-                   "/Game/ExampleModder123/ExampleGUI/MyActorComponent"
-               ]
-           },
-           "item_list_entries": {
-               "/Game/InitialUnlocks_Generous": {
-                   "ItemTypes": [
-                           "/Game/Items/ItemTypes/Components/LevelingBlock"
-                   ]
-                   },
-                   "/Game/Items/BackpackRail": {
-                       "PrinterComponent.Blueprints": [
-                           "/Game/Components_Terrain/LevelingBlock",
-                           "/Game/ExampleModder123/ExampleGUI/ExampleItem_BP"
-                   ]
-               }
-           }
-       }
+        "schema_version": 2,
+        "name": "Coordinate GUI",
+        "mod_id": "CoordinateGUI",
+        "author": "ExampleModder123",
+        "description": "Adds a coordinate display that toggles with the F3 key.",
+        "version": "0.1.0",
+        "game_build": "1.19.143.0",
+        "sync": "client",
+        "homepage": "https://example.com",
+        "download": {
+            "type": "index_file",
+            "url": "https://cdn.example.com/index.json"
+        },
+        "integrator": {
+            "persistent_actors": [
+                "/Game/ExampleModder123/ExampleGUI/ExampleGUIActor"
+            ],
+            "mission_trailheads": [
+                "/Game/ExampleModder123/ExampleMod/MissionTrailhead04-Example"
+            ],
+            "linked_actor_components": {
+                "/Game/Character/DesignAstro": [
+                    "/Game/ExampleModder123/ExampleGUI/MyActorComponent"
+                ]
+            },
+            "item_list_entries": {
+                "/Game/InitialUnlocks_Generous": {
+                    "ItemTypes": [
+                            "/Game/Items/ItemTypes/Components/LevelingBlock"
+                    ]
+                    },
+                    "/Game/Items/BackpackRail": {
+                        "PrinterComponent.Blueprints": [
+                            "/Game/Components_Terrain/LevelingBlock",
+                            "/Game/ExampleModder123/ExampleGUI/ExampleItem_BP"
+                    ]
+                }
+            }
+        },
+        "dependencies": {
+            "ModA": ">=1.2.0",
+            "ModB": "*",
+            "ModC": {
+                "version": "^1.2.3",
+                "download": {
+                    "type": "index_file",
+                    "url": "https://example.com"
+                }
+            }
+        }
    }
 
 As another example, here is a valid ``metadata.json`` file containing only the ``"schema_version"`` field and the REQUIRED fields:
