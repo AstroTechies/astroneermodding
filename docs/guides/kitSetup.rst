@@ -36,12 +36,12 @@ To develop your mods you will need a modkit which can be downloaded from
 If you are familiar with version control software you should clone it for easier updates.
 
 
-Wwise
-----------
+Wwise (optional)
+----------------
 
-Astroneer uses Wwise as its sound engine. To develop mods you must install wwise.
+Astroneer uses Wwise as its sound engine. If you want to make mods which play sounds you need to install Wwise.
 
-Go to `Wwise <https://www.audiokinetic.com/en/products/wwise>` website and head to ``Get Wwise`` -> ``Download Wwise``.
+Go to `Wwise <https://www.audiokinetic.com/en/products/wwise>`_ website and head to ``Get Wwise`` -> ``Download Wwise``.
 
 If you don't already have an account, create one. After wwise installed has finished downloading, open it and select WWISE in the top bar.
 
