@@ -39,7 +39,7 @@ If you are familiar with version control software you should clone it for easier
 Wwise
 ----------
 
-Astroneer uses Wwise as its sound engine. To develop mods you must install wwise.
+Astroneer uses Wwise as its sound engine. To develop mods with sound you must install wwise.
 
 Go to `Wwise <https://www.audiokinetic.com/en/products/wwise>` website and head to ``Get Wwise`` -> ``Download Wwise``.
 

@@ -163,7 +163,7 @@ Fill this file out like this
         }
     }
 
-Replace ``YOUR_NAME`` with your name.
+Replace ``YOUR_USERNAME`` with your name.
 
 ``/Game/Items/ItemTypes/MasterItemList$ItemTypes`` contains ItemTypes for all items so we register our ItemType with this.
 
@@ -190,7 +190,7 @@ So that the folder structure looks like this:
 
 
 .. warning:: 
-    Files in ``UE_PROJECT/Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and ``UE_PROJECT/Content/Mods/YOUR_USERNAME`` are different.
+    Files in ``ModdingKit/Saved/Cooked/WindowsNoEditor/Astro/Content/Mods/YOUR_USERNAME`` and ``UE_PROJECT/Content/Mods/YOUR_USERNAME`` are different.
     Where UE_PROJECT is the path to unreal project.
     The first location contains the cooked files, while the second one contains the uncooked ones.
     You **MUST** copy from the first location because the game only accepts cooked ones.
@@ -203,10 +203,12 @@ To make life easier for us we have created :download:`Packing Scripts <pakTools.
 
 After extracting them edit path to unreal engine in both of them to the respective path on your system.
 
-Now that the scripts are ready we can pack our mod, drag and drop the mod folder onto the ``_Repack.bat`` file.
+Now that the scripts are ready we can pack our mod.  Open two file explorer windows, one with the repack.bat file, and the other showing your mod folder.
+
+Next, drag and drop your project's main folder (000-TutorialMod-0.1.0_P) onto the ``_Repack.bat`` file.
 
 After UnrealPak finishes you should be able to see ``000-TutorialMod-0.1.0_P.pak`` file.
 
-To load this mod drag&drop it onto the modloader window and check the checkbox.
+To load this mod, drag&drop it onto the modloader window and check the checkbox to enable it.
 
 After all this work you should be able to print your first item.
