@@ -20,52 +20,62 @@ Creating an Item
 
 Items in Astroneer consist of two components, ItemType and PhysicalItem.
 
-ItemType is used by Astroneer to get your item's recipe, menu icon, item properties, description, etc.
+ItemType (you'll use an _IT suffix for these files) is used by Astroneer to get your item's recipe, menu icon, item properties, description, etc.
 
-PhysicalItem is the object that is going to be created in the world.
+PhysicalItem (you'll use an _BP suffix for these files) is the object that is going to be created in the world.
+
+These are different from the 3D mesh that you'll import, which has no suffix in its name and stores the 3D model of the object you'll see inside the game.
 
 
 Creating the PhysicalItem
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a blueprint class with name ``ExampleItem_BP`` and in the creation dialogue open All classes.
+Your first step is to create the PhysicalItem blueprint class.  Start by making sure Unreal Editor is in the ``TutorialMod`` folder before proceeding.
 
-Select PhysicalItem to inherit from, create and open the class.
+Click on "Create a blueprint class" and a pop-up window will appear.  Click on "open All classes" if it isn't opened already.
 
-First of all we want to set the model for that item so that we have something to look at.
+In the search bar above the class type list, type in "PhysicalItem" and select it once it appears.  This will determine what the blueprint will inherit from.  
+
+Then, create the class.  Once the dialog window closes, you should be able to type in the name of the blueprint.  Set it to ``ExampleItem_BP`` - it must 
+
+match this exactly.  Then press enter to save your name, and double-click on it to open up the PhysicalItem's settings menu.
+
+First of all we want to set the 3D model for that item, so that we have something to look at inside the game.
 
 For that we will need to :ref:`import the mesh <importingMesh>`
 
 .. _importingMesh:
+
 
 Importing the Mesh
 """"""""""""""""""
 
     1. Open your mod folder in the **Content Browser**
     2. Download this example mesh :download:`exampleMesh.fbx`
-    3. Drag&drop your mesh into the **Content Browser** and click ``Import all``
+    3. Drag&drop your mesh into the **Content Browser** and click ``Import all`` at the bottom right.  Don't change any settings in this window.
     4. Open the mesh and in the **Details** tab search for ``Has navigation Data`` and uncheck that checkmark.
 
 .. warning::
     If you don't uncheck ``Has navigation Data`` the game will crash when loading your mod.
 
-After importing the mesh, open the item you created and click on **StaticMeshComponent**.
+After importing the mesh, open the PhysicalItem again that you created earlier, and click on **StaticMeshComponent** in the left-hand side menu.
 
 .. note:: 
     If you don't see the **StaticMeshComponent** click on **Open Full Blueprint Editor**
 
-There in the **Details** tab set your mesh in ``Static Mesh`` field.
+There in the **Details** tab, set your mesh in ``Static Mesh`` field to the example mesh you imported.
 
 Click on **Compile** and then **Save**.
+
 
 Creating the ItemType
 ^^^^^^^^^^^^^^^^^^^^^
 
-Now that we have created the PhysicalItem it's time to make the ItemType for it.
+Now that we have created the PhysicalItem, it's time to make the ItemType for it. 
 
-Create a blueprint class with name ``ExampleItem_IT``, and in the creation dialogue open All classes.
+Create a second blueprint class, and in the creation dialogue open All classes.
 
-Select ItemType to inherit from, create and open the class.
+Select ItemType to inherit from, create the class, set its name to ``ExampleItem_IT``, and open the class.
 
 This is a simple item so we will leave most of the options untouched, you can experiment with them yourself and see what they do.
 
@@ -76,16 +86,16 @@ This is a simple item so we will leave most of the options untouched, you can ex
     * Set Count of the ingredient to 1.
 * Set **Catalog Data** to ``Item Catalog Data``
 
-- ``Base Item Type`` in **Catalog Data** is used to determine where in the item catalog the item will be listed.
+- ``Is Base Item`` in **Catalog Data** is used to determine whether this item will create it's own line inside the catalog or use an existing one from a base item.
+- ``Base Item Type`` in **Catalog Data** is used to determine what row of the item catalog that the item will be listed in.
 - ``Varitation Sequence Number`` in **Catalog Data** is used to determine the order in which the item will be listed in the item catalog.
 - ``Catalog Mesh`` in **Catalog Data** is used to determine the mesh that will be displayed in the item catalog.
-- ``Is Base Item`` in **Catalog Data** is used to determine whether this item will create it's own line inside the catalog or use an existing one from a base item.
 
 .. warning:: 
-    If you set ``Is Base Item`` and ``Base Item Type`` simultaneously the item **WILL NOT** show up in the catalog.
+    If you enable ``Is Base Item`` and then set ``Base Item Type`` to equal another object, your item **WILL NOT** show up in the catalog.  
 
 * Set **Base Item Type** to ``Consumable_JumpJet_IT`` so it gets listed near jetpacks and hoverboards.
-* Untick **Is Base Item**.
+* Untick **Is Base Item** because you are using the same row as the jetpacks, which already has a base item.
 * Set **Catalog Mesh** to the mesh we imported earlier.
 * Set **Crate Overlay Texture** to ``ui_icon_package_drill``. This is used to determine the icon that will be displayed on the packaged item.
 * Set **Widget Icon** to ``ui_icon_comp_drill``. This is used to determine the icon that will be displayed in the item catalog and on hovering on the item.
@@ -98,6 +108,8 @@ Open **Control Symbol** section and fill the fields out like this:
 * **All caps Name**: ``EXAMPLEITEM``
 * **Tooltip Subtitle**: ``Example Item``
 * **Description**: ``This is an example item.``
+
+These four entries do not have to match the names of your objects, they are used to determine the text used in the research catalog and tooltips in-game.
 
 
 Linking ItemType and BP together
