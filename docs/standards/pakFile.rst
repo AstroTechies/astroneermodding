@@ -15,6 +15,7 @@
    Mod IDs MUST NOT contain any characters other than uppercase ASCII letters, lowercase ASCII letters, and the digits zero through nine;
    as such, they also MUST NOT include any special characters, including, but not limited to, hyphens, underscores, and spaces.
    Mod IDs SHOULD be formatted in upper camel case, also known as Pascal case.
+   A single dot is allowed to extend the Mod ID with an Author ID to distinguish Mods made by different people.
 
 -  ``{VERSION}`` represents the current revision of the mod file. The version MUST be represented by at least two numbers separated by periods,
    but ultimately SHOULD be ``MAJOR.MINOR.PATCH`` .
