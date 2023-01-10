@@ -12,7 +12,8 @@ About Astroneer
 ---------------
 
 Astroneer uses a slightly modified version of Unreal Engine 4.23.1. Modding Unreal Engine games
-is hard, but not impossible.
+can be hard, but is not impossible. The modding tools that will be shown later in this guide can 
+simplify the process extensively, depending on the mod you are trying to make.
 
 Doing small tweaks for stuff like power values is quite simple, but adding your own logic
 or items takes a lot of time.

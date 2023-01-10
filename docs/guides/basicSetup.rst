@@ -7,8 +7,9 @@ Setting up Modding Tools
 Setting up Folders
 ------------------
 
-Start by creating a folder ``AstroneerModding`` on a drive with at least 10GB of free space. If
-you also want to make mods with Unreal Engine later you will need another 30GB.
+Start by creating a folder ``AstroneerModding`` in your PC.  A good location is your documents 
+folder.  This folder must be on a drive with at least 10GB of free space. If you also want to 
+make mods with Unreal Engine later you will need another 30GB.
 
 Setting up unreal_pak_cli
 -------------------------
@@ -32,8 +33,10 @@ Extracting the Game Files
 -------------------------
 
 First create a new folder in your ``AstroneerModding`` folder called ``GameFiles``. This will be
-where you will extract the game files to. Then go to where you have Astroneer installed. On Steam
-you can find it by right clicking on Astroneer then going to ``Properties`` and then
+where you will extract the game files to. Next, you will need to find your Astroneer's .pak file 
+by going to where you have Astroneer installed. The usual location for this is 
+``C:\Program Files (x86)\Steam\steamapps\common\ASTRONEER\Astro\Content\Paks``.  
+you can find it on Steam by right clicking on Astroneer then going to ``Properties`` and then
 ``Local Files > Browse``. From there go to the sub folder ``Astro\Content\Paks`` and copy the
 ``Astro-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. Finally in your ``GameFiles``
 folder right click on the ``Astro-WindowsNoEditor.pak`` file and select
@@ -51,8 +54,8 @@ Opening an Asset
 
 Go to ``AstroneerModding\GameFiles\WindowsNoEditor\Astro\Content\Items\ItemTypes`` and double click
 on ``FloodLight_IT.uasset``. Since you probably have not opened one of these files before Windows
-will ask you for a program. Select show more etc. and then browse to and select the
-``UAssetGUI.exe`` we extracted earlier. This will set UAssetGUI as the default program for .uasset
-files.
+will ask you for a program. Select "more apps," then "Look for another app on this PC." Browse to 
+and select the ``UAssetGUI.exe`` we extracted earlier. This will set UAssetGUI as the default 
+program for .uasset files, which you will need for making your first mod.
 
 To make your first mod continue with :doc:`basicModding`.
