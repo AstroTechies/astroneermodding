@@ -85,6 +85,23 @@ When making a mod you would place an asset file
 ``/Astro/Content/Mods/ModderName/MyModId/MyAsset.uasset`` in you .pak file but referece it as
 ``/Game/Mods/ModderName/MyModId/MyAsset.uasset`` inside assets.
 
+Tools For Creating Mods
+-----------------------
+
+Typically, mods are created using either UassetGUI or Unreal Engine directly.  Each of these tools 
+provides benefits over the other.
+UassetGUI, which was originally written for Astroneer modding, is a great way to quickly generate
+a mod that involves small changes to the game, such as changing numbers.  An example of this is
+modifying the max speed of a rover, which is very easy to do with UassetGUI.  UassetGUI's main downside
+is that it's limited in capabilities for more advanced projects, such as adding new items to the game.
+Your first tutorial for making mods will utilize UassetGUI.
+Unreal Engine Editor 4.23.1 is also used to create mods, utilizing an environment similar to game 
+development on the platform.  While it is a bit harder to learn than UassetGUI, and does not have all
+of the game files available to it (yet), it allows for much more advanced mods to be created.  Unreal
+Editor also has less chance of causing mod conflicts due to how .uasset files are registered within
+the modloader.
+**Using Unreal Engine Editor is recommended for advanced projects.**
+
 Items in Astroneer
 ------------------
 
