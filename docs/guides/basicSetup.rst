@@ -33,13 +33,20 @@ Extracting the Game Files
 -------------------------
 
 First create a new folder in your ``AstroneerModding`` folder called ``GameFiles``. This will be
-where you will extract the game files to. Next, you will need to find your Astroneer's .pak file 
-by going to where you have Astroneer installed. The usual location for this is 
-``C:\Program Files (x86)\Steam\steamapps\common\ASTRONEER\Astro\Content\Paks``.  
-you can find it on Steam by right clicking on Astroneer then going to ``Properties`` and then
-``Local Files > Browse``. From there go to the sub folder ``Astro\Content\Paks`` and copy the
-``Astro-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. Finally in your ``GameFiles``
-folder right click on the ``Astro-WindowsNoEditor.pak`` file and select
+where you will extract the game files to.
+
+Next, you will need to find your Astroneer's .pak file by going to where you have Astroneer
+installed.
+
+- The usual location for this is 
+  ``C:\Program Files (x86)\Steam\steamapps\common\ASTRONEER\Astro\Content\Paks``.
+
+- If you have the Game installed anywhere outside the default Steam location you can find it on
+  Steam by right clicking on Astroneer then going to ``Properties`` and then
+  ``Local Files > Browse``. From there go to the sub folder ``Astro\Content\Paks``.
+  
+Copy the ``Astro-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. Finally in your 
+``GameFiles`` folder right click on the ``Astro-WindowsNoEditor.pak`` file and select
 ``Send to > Unpack .pak with unreal_pak_cli``. This may take a minute.
 
 Setting up UAssetGUI
