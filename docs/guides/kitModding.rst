@@ -197,17 +197,15 @@ So that the folder structure looks like this:
 
 Now that the mod structure is complete, time to pack the mod.
 
-For packing the mod we will be using ``UnrealPak`` which comes preinstalled with your unreal engine installation.
+For packing the mod we will be using ``unreal_pak_cli``.
 
-To make life easier for us we have created :download:`Packing Scripts <pakTools.zip>` that help with using UnrealPak, download and extract them.
+To make life easier for us we have created :download:`unreal_pak_cli <unreal_pak_cli.zip>` that will help us pack your mod folder, download and extract them.
 
-After extracting them edit path to unreal engine in both of them to the respective path on your system.
+Now that the scripts and the program are extracted we can pack our mod.  Open two file explorer windows, one with the repack.bat file, and the other showing your mod folder.
 
-Now that the scripts are ready we can pack our mod.  Open two file explorer windows, one with the repack.bat file, and the other showing your mod folder.
+Next, drag and drop your project's main folder (000-TutorialMod-0.1.0_P) onto the ``repack.bat`` file.
 
-Next, drag and drop your project's main folder (000-TutorialMod-0.1.0_P) onto the ``_Repack.bat`` file.
-
-After UnrealPak finishes you should be able to see ``000-TutorialMod-0.1.0_P.pak`` file.
+After unreal_pak_cli finishes you should be able to see ``000-TutorialMod-0.1.0_P.pak`` file.
 
 To load this mod, drag&drop it onto the modloader window and check the checkbox to enable it.
 
