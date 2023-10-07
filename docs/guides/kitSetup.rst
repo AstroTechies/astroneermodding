@@ -12,29 +12,31 @@ Visual Studio
 Download and install `Visual Studio <https://visualstudio.microsoft.com/downloads/>`_ 2017 or higher.
 
 Before installing Visual Studio, make sure that you have an suffient undamaged version of 
-`Visual C++ Redistributable for Visual Studio 2015-2022` installed. You can manually install them first, before installing VS.
+Visual C++ Redistributable for Visual Studio 2015-2022 installed. You can manually install them first, before installing VS.
 
 Download links for both x86 (32-bit Windows) and x64 (64-bit Windows):
-<https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022>
+
+`https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022`
 
 You will also need `Windows SDK` to be installed.
-https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
 
-If `Visual C++ Redistributable for Visual Studio 2015-2022 Installation Error Occurs (PLEASE NOTE)
-If when installing `Visual C++ Redistributable for Visual Studio 2015-2022` you recieve an error, this may mean that you package is
-corrupted and need to b eremoved and reinstalled. To do this, download the Microsoft Diagnostic Tool from:
-<https://support.microsoft.com/en-us/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d> 
+`https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/`
+
+If Visual C++ Redistributable for Visual Studio 2015-2022 Installation Error Occurs (PLEASE NOTE)
+If when installing Visual C++ Redistributable for Visual Studio 2015-2022 you recieve an error, this may mean that you package is
+corrupted and need to be removed and reinstalled. To do this, download the Microsoft Diagnostic Tool from:
+
+`https://support.microsoft.com/en-us/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d`
 
 After installing, you many have to run the Diagnostic Tool multiple time to Search for and UNINSTALL
-both `Visual C++ Redistributable for Visual Studio 2015-2022`versions. Even if the tool say "Uninstallation Failed" it may have still work. 
-Verify the removal actually worked by opening `Add and Remove Programs` in your Win Control Panel and Settings.
-Once verified, Go ahead and REINSTALL the `Visual C++ Redistributable for Visual Studio 2015-2022` x86/x64 you downloaded early and it should install with no problems.
+both Visual C++ Redistributable for Visual Studio 2015-2022`versions. Even if the tool say "Uninstallation Failed" it may have still work. 
+Verify the removal actually worked by opening "Add and Remove Programs" in your Win Control Panel and Settings.
+Once verified, Go ahead and REINSTALL the Visual C++ Redistributable for Visual Studio 2015-2022` x86/x64 you downloaded early and it should install with no problems.
 
-
-
-
-When running the installer, on the "Workloads" page make sure you select "Desktop & Mobile > 
-Desktop development with C++" and "Gaming > Game development with C++".
+Ok Now install Visual Studio.
+When running the installer, on the "Workloads" page make sure you select the following:
+* "Desktop & Mobile > Desktop development with C++" and 
+* "Gaming > Game development with C++".
 
 If Visual Studio is already installed you can run the installer and press modify to add the
 necessary workloads.
