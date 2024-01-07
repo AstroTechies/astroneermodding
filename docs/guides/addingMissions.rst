@@ -26,12 +26,15 @@ Here we will fill out some data to tell Astroneer where to put our mission.
 * **Notification Color**: ``Astro Blue``
 * **Byte Reward Value**: ``1000``
 * **Notification Icon**: ``ui_icon_nug_astronium``
+* **Auto Activate**: ``✓``
 
 - **Notification Color** is the color of the notification that will be shown when you complete the mission.
 - **Notification Icon** icon of the notification that will be shown when you complete the mission.
 
 - **Prerequisite Missions** is a list of missions that must be completed before this mission can be completed.
 - **Next missions** missions that will be unlocked after this mission is completed.
+
+- **Auto Activate** will activate your mission automatically instead of you needing to do it from a blueprint
 
 Now let's actually add objectives, for this tutorial we will be requiring the player to collect 2 pieces of clay.
 
