@@ -4,8 +4,8 @@ Metadata standard
 =====================
 
 .. note:: 
-    If you are looking for metadata v1 standard, it has moved :doc:`here <./metadatav1>`.
-    Please note that metadata v1 standard is outdated, and it's recommended to use metadata v2 standard.
+    If you are looking for the metadata v1 standard, it has moved :doc:`here <./metadatav1>`.
+    Please note that the metadata v1 standard is outdated. New mods SHOULD use the metadata v2 standard.
 
 The following describes Schema Version 2.
 
@@ -58,7 +58,7 @@ The following is a list of fields that can be specified within the root object o
    -  ``url``: If the type field is set to ``"index_file"``, this is set to the web URL of the mod's index file.
       This field is represented as a string, and is OPTIONAL.
 
-- ``integrator``: A json object containing integration sections to load into the game
+- ``integrator``: An object containing integration sections to load into the game. This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
   -  ``persistent_actors``: A standard JSON array of asset paths to actors to bake into the level. This field is represented as an array,
      and is OPTIONAL, defaulting to ``[]``.
@@ -67,22 +67,25 @@ The following is a list of fields that can be specified within the root object o
      to bake into the level. This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
   -  ``linked_actor_components``: A standard JSON object, where the keys are game paths to Actors and the values are standard JSON arrays
-     that provide a list of game paths that the mod integrator will automatically attach to the specified Actors.
+     that provide a list of game paths to components that the mod integrator will automatically attach to the specified Actors.
      This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
-  -  ``item_list_entries``: A standard JSON object where the keys are game paths to any asset and the values are standard JSON objects
-     where the keys are array names to modify in the asset and the values are standard JSON arrays which list entries to add to the specified
+  -  ``item_list_entries``: A standard JSON object where the keys are game paths to any asset and the values are standard JSON objects,
+     in which the keys are array names to modify in the asset and the values are standard JSON arrays which list entries to add to the specified
      array as object pointers.
-     Alternatively, the array names to modify in the asset can be specified with the format ``category`` ``name.array`` ``name`` in order
+     Alternatively, the array names to modify in the asset can be specified with the format ``category_name.array_name`` in order
      to hone in on one particular array.
      This field has a niche use, but is especially important in adding entries to commonly used item lists,
      such as the list of items that a certain printer can print or the global master list that contains items that need to be referenced on
      bootup for the research catalog or otherwise. This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
-  -  ``biome_placement_modifiers``: Placement modifiers used for adding custom procedurally generated actors.
+  -  ``biome_placement_modifiers``: A standard JSON array of placement modifiers used for adding custom procedurally generated actors. Each placement modifier
+     is represented as a JSON object in which the following fields MUST be specified: ``planet_type``, ``biome_type``, ``biome_name``, ``layer_name``, and ``placements``.
+     Each field MUST be a string, with the exception of ``placements``, which is a JSON array of game paths to the procedural modifiers to place into this layer.
+     This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
-- ``dependencies``: A json object containing dependencies that must be fetched for this mod to work.  
-  Dependency version requirements follow the `semver standard <https://semver.org/>`_.
+- ``dependencies``: A JSON object containing dependencies that must be fetched for this mod to work.  
+    Dependency version requirements follow the `semver standard <https://semver.org/>`_.
 
 As an example, here is a valid ``metadata.json`` file incorporating all of the defined fields:
 
