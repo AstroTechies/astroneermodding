@@ -84,8 +84,8 @@ The following is a list of fields that can be specified within the root object o
      Each field MUST be a string, with the exception of ``placements``, which is a JSON array of game paths to the procedural modifiers to place into this layer.
      This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
-- ``dependencies``: A JSON object containing dependencies that must be fetched for this mod to work.  
-    Dependency version requirements follow the `semver standard <https://semver.org/>`_.
+- ``dependencies``: A json object containing dependencies that must be fetched for this mod to work.  
+  Dependency version requirements follow the `semver standard <https://semver.org/>`_.
 
 As an example, here is a valid ``metadata.json`` file incorporating all of the defined fields:
 
