@@ -64,7 +64,7 @@ The following is a list of fields that can be specified within the root object o
      and is OPTIONAL, defaulting to ``[]``.
 
   -  ``persistent_actor_maps``: A standard JSON array of paths to additional maps (levels) to be used globally when performing ``persistent_actors`` integration.
-     Assets in this field MAY be represented with their package names (e.g. in the format of `/Game/U32_Expansion/U32_Expansion`), but SHOULD be represented instead with their raw paths (e.g. in the format of `Astro/Content/U32_Expansion/U32_Expansion.umap`) to ensure backwards compatibility.
+     Assets in this field MAY be represented with their package names (e.g. in the format of ``/Game/U32_Expansion/U32_Expansion``), but SHOULD be represented instead with their raw paths (e.g. in the format of ``Astro/Content/U32_Expansion/U32_Expansion.umap```) to ensure backwards compatibility.
      This field applies globally, so it will affect all mods that make use of the ``persistent_actors`` field. As such, it should be applied with caution.
      This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
