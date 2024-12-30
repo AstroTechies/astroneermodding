@@ -63,6 +63,11 @@ The following is a list of fields that can be specified within the root object o
   -  ``persistent_actors``: A standard JSON array of asset paths to actors to bake into the level. This field is represented as an array,
      and is OPTIONAL, defaulting to ``[]``.
 
+  -  ``persistent_actor_maps``: A standard JSON array of paths to additional maps (levels) to be used globally when performing ``persistent_actors`` integration.
+     Assets in this field MAY be represented with their package names (e.g. in the format of `/Game/U32_Expansion/U32_Expansion`), but SHOULD be represented instead with their raw paths (e.g. in the format of `Astro/Content/U32_Expansion/U32_Expansion.umap`) to ensure backwards compatibility.
+     This field applies globally, so it will affect all mods that make use of the ``persistent_actors`` field. As such, it should be applied with caution.
+     This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
+
   -  ``mission_trailheads``: A standard JSON array of asset paths to mission trailheads (such as those found in the ``/Game/Missions`` folder)
      to bake into the level. This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
@@ -84,10 +89,11 @@ The following is a list of fields that can be specified within the root object o
      Each field MUST be a string, with the exception of ``placements``, which is a JSON array of game paths to the procedural modifiers to place into this layer.
      This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
-- ``dependencies``: A json object containing dependencies that must be fetched for this mod to work.  
+- ``dependencies``: A JSON object containing dependencies that must be fetched for this mod to work, where each dependency is represented as an entry with the key being the mod ID as a string, and the value being the version requirement as a string. 
   Dependency version requirements follow the `semver standard <https://semver.org/>`_.
+  This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
-As an example, here is a valid ``metadata.json`` file incorporating all of the defined fields:
+As an example, here is a valid ``metadata.json`` file incorporating all of the defined root-level fields:
 
 .. code-block:: JSON
 
@@ -120,13 +126,13 @@ As an example, here is a valid ``metadata.json`` file incorporating all of the d
             "item_list_entries": {
                 "/Game/InitialUnlocks_Generous": {
                     "ItemTypes": [
-                            "/Game/Items/ItemTypes/Components/LevelingBlock"
+                        "/Game/Items/ItemTypes/Components/LevelingBlock"
                     ]
-                    },
-                    "/Game/Items/BackpackRail": {
-                        "PrinterComponent.Blueprints": [
-                            "/Game/Components_Terrain/LevelingBlock",
-                            "/Game/ExampleModder123/ExampleGUI/ExampleItem_BP"
+                },
+                "/Game/Items/BackpackRail": {
+                    "PrinterComponent.Blueprints": [
+                        "/Game/Components_Terrain/LevelingBlock",
+                        "/Game/ExampleModder123/ExampleGUI/ExampleItem_BP"
                     ]
                 }
             }
