@@ -152,7 +152,7 @@ The following is a list of fields that are valid within the root object of the m
 -  ``dependencies``
 
    - A JSON object containing dependencies that must be fetched for this mod to work.
-   - Each dependency is represented as an entry with the key being the mod ID as a string, and the value being the version requirement as a string. 
+   - Each dependency is represented as an entry with the key being the mod ID as a string, and the value being either the version requirement as a string, or a JSON object containing a field "version" corresponding to the version requirement as a string and an optional field "download" which is an object equivalent to the root-level "download" field.
    - Dependency version requirements follow the `semver standard <https://semver.org/>`_.
    - This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
