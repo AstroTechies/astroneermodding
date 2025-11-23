@@ -7,7 +7,7 @@ Adding Missions
 Adding the Mission Trailhead
 ----------------------------
 
-Right click in the **Content Browser** and add a folder called ``Missions``.
+Right click in the **Content Browser** and add a folder called ``Missions`` within your mod folder.
 
 Inside this folder create a **Data Asset**
 

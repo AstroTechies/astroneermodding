@@ -13,7 +13,7 @@ How Making a Mod Works
 Using UAssetGUI is a fairly simple way to create a mod. The process, which is covered in detail
 below, involves making a copy of Astroneer's file structure (while only containing the necessary 
 files) inside your mod folder. Then, UAssetGUI is used to modify those game files to your liking.
-Once the metadata file is set up correctly, the mod folder is packaged using unreal_pak_cli, and 
+Once the metadata file is set up correctly, the mod folder is packaged using repak, and 
 your mod is ready to use.  
 
  While the ways in which the game files are modified will vary, most other methods of creating 
@@ -102,7 +102,7 @@ Packing the Mod
 ---------------
 
 Close UAssetGUI and go back to your ``TutorialMod`` folder.  Right click on the 
-``000-TutorialMod-0.1.0_P`` folder, then select ``Send to > Repack folder with unreal_pak_cli``. 
+``000-TutorialMod-0.1.0_P`` folder, then select ``Send to > Repack folder with repak``. 
 This will create a ``000-TutorialMod-0.1.0_P.pak`` file in the same folder.
 
 Installing the Mod

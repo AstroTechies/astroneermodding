@@ -11,23 +11,24 @@ Start by creating a folder ``AstroneerModding`` in your PC.  A good location is 
 folder.  This folder must be on a drive with at least 10GB of free space. If you also want to 
 make mods with Unreal Engine later you will need another 30GB.
 
-Setting up unreal_pak_cli
+Setting up repak
 -------------------------
 
-When working with .pak files you need some kind of program to extract and create them. We will be
-using the community-created ``unreal_pak_cli`` program. The source code can be found
-`here <https://github.com/AstroTechies/unrealmodding/tree/main/unreal_pak_cli>`_. To download a
-pre-built binary and some useful .bat files click :download:`HERE <unreal_pak_cli.zip>`. (We will
+To work with .pak files, you will need to use some kind of program to extract and create them. In this guide, we will use
+the popular open-source program ``repak``, developed by trumank for use with a variety of different Unreal Engine games.
+If curious, you can find the source code for that application
+`here <https://github.com/trumank/repak>`_. To download a
+pre-built binary of this software (v0.2.2) and some useful .bat files, click :download:`HERE <repak_for_astroneer.zip>`. (We will
 be using this)
 
-Once you have downloaded the .zip extract it to your ``AstroneerModding`` folder. Then go into the
-``unreal_pak_cli``. You should see the .exe and two .bat files. We will be adding the bat files to
+Once you have downloaded the .zip extract it to your ``AstroneerModding`` folder. Then, open the new
+``repak_for_astroneer`` folder. You should see the .exe and two .bat files. We will be adding the bat files to
 the Windows Send to window to speed up the modding workflow. This is not strictly neccessary and
 use the .exe like any other cli tool.
 
 Right click both .bat files and select ``Create Shortcut``. Then press ``Win+R`` and enter
 ``Shell:sendto``. This will open a new window. Drag both shortcuts into that window. Then rename
-them ``Repack folder with unreal_pak_cli`` and ``Unpack .pak with unreal_pak_cli``.
+them ``Repack folder with repak`` and ``Unpack .pak with repak``.
 
 Extracting the Game Files
 -------------------------
@@ -47,7 +48,7 @@ installed.
   
 Copy the ``Astro-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. Finally in your 
 ``GameFiles`` folder right click on the ``Astro-WindowsNoEditor.pak`` file and select
-``Send to > Unpack .pak with unreal_pak_cli``. This may take a minute.
+``Send to > Unpack .pak with repak``. This may take a minute.
 
 Setting up UAssetGUI
 --------------------
