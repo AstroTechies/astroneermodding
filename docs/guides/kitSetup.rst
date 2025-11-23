@@ -25,7 +25,7 @@ Open Epic Games launcher and go to "Unreal Engine" tab.
 
 Next go to Library and add a new engine version. 
 
-Select 4.23.x where x can be any number, and press install.
+Select 4.27.2 and press install.
 
 Modding Kit
 -----------
@@ -88,7 +88,7 @@ To generate the project files we will need to run the following command:
     "UE_INSTALL_PATH\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="PATH_TO_PROJECT\\Astro.uproject" -game -rocket -progress
 
 
-Open cmd in your project directory and copy this inside cmd. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder which is usually found at ``C:\\Program Files\\Epic Games\UE_4.23\\``.
+Open cmd in your project directory and copy this inside cmd. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder which is usually found at ``C:\\Program Files\\Epic Games\UE_4.27\\``.
 
 And remember to change **PATH_TO_PROJECT** with path to the modkit.
 
@@ -96,7 +96,7 @@ Example:
 
 .. code-block:: 
 
-    "C:\Program Files\Epic Games\UE_4.23\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="C:\\Users\\username\\Documents\\Astro.uproject" -game -rocket -progress
+    "C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="C:\\Users\\username\\Documents\\Astro.uproject" -game -rocket -progress
 
 Run the command, and then open the ``Astro.uproject`` file and if it asks to build unbuilt modules press yes and wait.
 

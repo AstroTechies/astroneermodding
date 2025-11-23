@@ -11,7 +11,7 @@ This page will give you an overview of how Astroneer mods are structured and dis
 About Astroneer
 ---------------
 
-Astroneer uses a slightly modified version of Unreal Engine 4.23.1. Modding Unreal Engine games
+Astroneer uses a slightly modified version of Unreal Engine 4.27.2. Modding Unreal Engine games
 can be hard, but is not impossible. The modding tools that will be shown later in this guide can 
 simplify the process extensively, depending on the mod you are trying to make.
 
@@ -95,7 +95,7 @@ a mod that involves small changes to the game, such as changing numbers.  An exa
 modifying the max speed of a rover, which is very easy to do with UassetGUI.  UassetGUI's main downside
 is that it's limited in capabilities for more advanced projects, such as adding new items to the game.
 Your first tutorial for making mods will utilize UassetGUI.
-Unreal Engine Editor 4.23.1 is also used to create mods, utilizing an environment similar to game 
+Unreal Engine Editor 4.27.2 is also used to create mods, utilizing an environment similar to game 
 development on the platform.  While it is a bit harder to learn than UassetGUI, and does not have all
 of the game files available to it (yet), it allows for much more advanced mods to be created.  Unreal
 Editor also has less chance of causing mod conflicts due to how .uasset files are registered within
