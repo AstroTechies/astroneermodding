@@ -26,7 +26,7 @@ These files are comparable to .zip files. They store a bunch of compressed files
 Distributing a mod is as easy as giving somebody else a .pak file. 
 
 When put in specific directories (manged by the modloader) they will loaded by the game after the
-main ``Astro-WindowsNoEditor.pak``. Then they can either replace or modify existing parts of the
+main ``pakchunk0-WindowsNoEditor.pak``. Then they can either replace or modify existing parts of the
 game or even add new files and items to the game.
 
 Mod .pak files also include some extra data in the ``metadata.json`` file placed at the root of the

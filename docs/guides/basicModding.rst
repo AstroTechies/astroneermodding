@@ -56,8 +56,8 @@ We want to change the byte cost of the floodlight so we need to find the ItemTyp
 floodlight. Sometimes finding the proper file can hard, but Windows search can help.
 
 The asset file we are looking for is located at 
-``GameFiles\Astro-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
-``GameFiles\Astro-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uexp``.
+``GameFiles\pakchunk0-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uasset`` and
+``GameFiles\pakchunk0-WindowsNoEditor\Astro\Content\Items\ItemTypes\FloodLight_IT.uexp``.
 It is important to remember that each asset is split into two files and you always need to keep
 both together. Now we are going to copy the two files over to our folder so that we can modify them.
 Copy them to

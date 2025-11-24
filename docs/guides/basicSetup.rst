@@ -46,8 +46,8 @@ installed.
   Steam by right clicking on Astroneer then going to ``Properties`` and then
   ``Local Files > Browse``. From there go to the sub folder ``Astro\Content\Paks``.
   
-Copy the ``Astro-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. Finally in your 
-``GameFiles`` folder right click on the ``Astro-WindowsNoEditor.pak`` file and select
+Copy the ``pakchunk0-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. Finally in your 
+``GameFiles`` folder right click on the ``pakchunk0-WindowsNoEditor.pak`` file and select
 ``Send to > Unpack .pak with repak``. This may take a minute.
 
 Setting up UAssetGUI
