@@ -1,6 +1,6 @@
 .. _metadatav2:
 
-Metadata standard
+Metadata Standard
 =====================
 
 .. note:: 
@@ -19,7 +19,7 @@ The following is a list of fields that are valid within the root object of the m
 
    - An integer that represents the current version of the ``metadata.json`` standard that is being used.
    - The schema version is incremented every time there is a backwards-incompatible change to the format.
-   - This field SHOULD be specified, but if it is left unspecified, it defaults to ``1``, the initial version of the standard.
+   - This field MUST be specified and MUST be set to ``2`` if complying with Schema Version 2. If the field is left unspecified, it defaults to ``1``, the initial version of the standard.
 
 -  ``name``
 
@@ -66,6 +66,12 @@ The following is a list of fields that are valid within the root object of the m
    - A link to the homepage of the mod, a web page where users can go to to find more information about the mod or the author of the mod.
    - This field is represented as a string, and is OPTIONAL, defaulting to an empty string.
 
+-  ``enable_ue4ss``
+
+   - Whether or not this mod uses UE4SS.
+   - If specified, a directory named "UE4SS" SHOULD be placed at the root of the .pak mod file containing the files of the UE4SS mod to load in-game. The .pak mod file MAY still contain .uasset files as needed.
+   - This field is represented as a boolean, and is OPTIONAL, defaulting to ``false``.
+
 -  ``download``
 
    - An object with fields defining how to auto-update the mod.
@@ -85,6 +91,7 @@ The following is a list of fields that are valid within the root object of the m
           -  ``"thunderstore"``
 
              - This mod can be downloaded through the Thunderstore mod database, which is available online at https://thunderstore.io/c/astroneer/.
+
         
    - If the type field is set to ``"index_file"``, the following fields are valid:
 
@@ -102,7 +109,7 @@ The following is a list of fields that are valid within the root object of the m
 
      -  ``name``
      
-        - This is set to the name of the mod on Thunderstore
+        - This is set to the name of the mod on Thunderstore.
         - Any spaces in the mod name displayed on the Thunderstore mod database website MUST be replaced with underscores.
         - This field is represented as a string, and is OPTIONAL.
 
@@ -138,8 +145,17 @@ The following is a list of fields that are valid within the root object of the m
    
       - A standard JSON object, where the keys are game paths to any asset and the values are standard JSON objects containing item list modifications to make to that asset.
       - The key of each entry within each item list modification object is an array name to modify in the asset, and the corresponding value is a standard JSON arrays which lists entries to add to the specified array as object pointers.
-      - Alternatively, the array names to modify in the asset MAY be instead specified with the format ``category_name.array_name`` in order to hone in on one particular array.
+      - Alternatively, the array names to modify in the asset MAY be instead specified with the format ``export_name.array_name`` in order to hone in on one particular array.
       - This field has a niche use, but is especially important in adding entries to commonly used item lists, such as the list of items that a certain printer can print or the global master list that contains items that need to be referenced on bootup for the research catalog or otherwise.
+      
+      - In certain cases, specifying certain assets for use with this field also automatically causes those item list entries to be added for use with other assets, in order to maintain backwards compatibility. This behavior can be disabled by manually specifying an entry for the target asset in the ``item_list_entries`` field.
+      
+         - ``/Game/Items/ItemTypes/MasterItemList`` entries are copied to ``/Game/Items/ItemTypes/BaseGameInitialKnownItemList``
+         - ``/Game/Items/ItemTypes/MasterItemList`` entries are copied to ``/Game/U32_Expansion/Items/GW_InitialKnownItemList``
+         - ``/Game/Items/ItemLists/BackpackPrinterItemList`` entries are copied to ``/Game/Items/ItemLists/BackpackPrinterItemList_GW``
+         - ``/Game/Items/ItemLists/T1PrinterItemList`` entries are copied to ``/Game/Items/ItemLists/T1PrinterItemList_GW``
+         - ``/Game/Items/ItemLists/T2PrinterItemList`` entries are copied to ``/Game/Items/ItemLists/T2PrinterItemList_GW``
+
       - This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
    -  ``biome_placement_modifiers``
@@ -156,6 +172,29 @@ The following is a list of fields that are valid within the root object of the m
    - Dependency version requirements follow the `semver standard <https://semver.org/>`_.
    - This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
+Compatibility
+-------------
+The above standards are currently followed by the mod loaders listed below:
+
+-  AstroModLoader Classic
+
+   - full support
+   - Blueprint API: https://github.com/atenfyr/AstroModLoader-Classic/tree/master/AstroModIntegrator/BlueprintAssets
+
+-  Vortex Mod Manager
+
+   - full support with extension: https://www.nexusmods.com/site/mods/1547
+   - 100% parity with AstroModLoader Classic
+
+-  astro_modloader (Rust)
+
+   - no support for the ``enable_ue4ss`` field; if used, the mod fails to load
+   - no support for the ``thunderstore`` download type; if used, the ``download`` field is ignored
+   - no support for using package names with ``persistent_actor_maps`` (only raw paths)
+   - Blueprint API: https://github.com/AstroTechies/ModdingKit/tree/master/Content/Integrator
+
+Examples
+-------------
 As an example, here is a valid ``metadata.json`` file incorporating all of the defined root-level fields:
 
 .. code-block:: JSON
