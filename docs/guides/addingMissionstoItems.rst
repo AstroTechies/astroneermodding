@@ -1,11 +1,11 @@
-Adding Mission Panels to items
-=====================
+Adding Mission Panels to Items
+===============================
 
 .. contents:: Contents
     :depth: 3
 
 Creating the Mission Panel
----------------------
+---------------------------
 
 .. note:: 
     **This is an advanced topic, so it is preferred that you already have some experience modding Astroneer.**
@@ -68,7 +68,7 @@ Now in the ``Child Actor Template`` dropdown, click on the Default dropdown and 
 
 
 Creating & Linking the Supply Drop Points
---------------------
+-------------------------------------------
 
 In your items BP create 3 new ``Scene`` Components and name them accordingly (ex. ``SupplyDropPoint`` 1, 2, 3)
 

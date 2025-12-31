@@ -172,6 +172,8 @@ The following is a list of fields that are valid within the root object of the m
    - Dependency version requirements follow the `semver standard <https://semver.org/>`_.
    - This field is represented as an object, and is OPTIONAL, defaulting to ``{}``.
 
+.. _compatibility:
+
 Compatibility
 -------------
 The above standards are currently followed by the mod loaders listed below:

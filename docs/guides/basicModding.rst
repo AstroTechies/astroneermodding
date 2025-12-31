@@ -1,3 +1,5 @@
+.. _basicmodding:
+
 Basic Modding
 =============
 

@@ -32,7 +32,8 @@ import os
 # bunch of extensions that could be useful
 extensions = [
     'sphinx.ext.duration',
-    'sphinx.ext.autosummary'
+    'sphinx.ext.autosummary',
+    'sphinx_toolbox.collapse'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -49,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Astroneer Modding'
-copyright = u'2021, Astro Techies'
+copyright = u'2021 - 2026, AstroTechies'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
