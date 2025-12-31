@@ -73,7 +73,7 @@ foreach (string assetPath in allPotentialAssets)
                         break;
                     case TextHistoryType.Base:
                     case TextHistoryType.None:
-                        if (texProp.Value != null) itemNameToPath[allStringTableEntries[texProp.CultureInvariantString.Value]] = formattedAssetPath;
+                        if (texProp.Value != null) itemNameToPath[texProp.CultureInvariantString.Value] = formattedAssetPath;
                         break;
                     default:
                         if (texProp.Value != null) itemNameToPath[texProp.Value.Value] = formattedAssetPath;
