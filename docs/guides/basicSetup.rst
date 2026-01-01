@@ -1,3 +1,5 @@
+.. _basicsetup:
+
 Setting up Modding Tools
 ========================
 
@@ -53,7 +55,7 @@ Copy the ``pakchunk0-WindowsNoEditor.pak`` files to your ``GameFiles`` folder. F
 Setting up UAssetGUI
 --------------------
 
-UAssetGUI is tool for viewing and editing cooked .uasset files. Downlaod the latest version from
+UAssetGUI is tool for viewing and editing cooked .uasset files. Download the latest version from
 `GitHub <https://github.com/atenfyr/UAssetGUI/releases>`_. Extract the .zip file to your
 ``AstroneerModding`` folder.
 

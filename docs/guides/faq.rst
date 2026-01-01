@@ -34,6 +34,35 @@ The simplest strategy for implementing Astroneer support for your own mod manage
 
 .. _`AutoIntegrator`: https://new.thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/
 
+Can I use mods on dedicated servers?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, you can use mods on dedicated servers. Some mods need to be installed on both the client and the server (sync = "serverclient"), whereas other mods can be installed on just the client (sync = "client") or just the server (sync = "server").
+
+If you are playing a co-op game, no extra action needs to be taken for you to play with mods in multiplayer, as long as the other players also have the required mods installed.
+
+If you are self-hosting a dedicated server, you can install mods by placing a copy of `AstroModLoader Classic`_ at the root folder of the server installation directory and executing the mod loader normally. You can otherwise pass the ``--server`` command line parameter to the AstroModLoader Classic executable file.
+
+As a last resort, you can also simply copy your local ``%localappdata%\Astro\Saved\Paks`` folder (including the integrated ``999-AstroModIntegrator_P.pak`` file) onto the server machine. You would need to perform this step again along with a re-integration (by opening the mod loader again on your local machine) at least once every time that the game updates, or at any point in time that you wish to change your set of mods.
+
+.. _`AstroModLoader Classic`: https://github.com/atenfyr/AstroModLoader-Classic
+
+Can I use mods on Linux?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, you can use mods on Linux. You can execute `astro_modloader (Rust)`_ natively on Linux, or otherwise run AstroModLoader Classic through Wine + Mono.
+
+If needed, you can also run `AstroModIntegrator Classic`_ natively on Linux via the command line (use the ModIntegrator-linux-x64 binary).
+
+.. _`astro_modloader (Rust)`: https://github.com/AstroTechies/astro_modloader/releases/latest
+.. _`AstroModIntegrator Classic`: https://github.com/atenfyr/AstroModLoader-Classic/releases/latest
+
+Can I use mods without any external mod management software?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, you can avoid using any external mod management software by manually executing the mod integrator via the command line, if you so choose. The mod integrator is an absolute requirement for playing with Astroneer mods. This technique will not work for UE4SS mods.
+
+Place your .pak files manually at the appropriate path (in the ``%localappdata%\Astro\Saved\Paks`` directory on Windows). Download the ModIntegrator-win-x64.exe binary or the ModIntegrator-linux-x64 binary from the `atenfyr/AstroModLoader-Classic GitHub repository`_. Then, execute the binary with no parameters to receive information about the required command line parameters. You must execute the mod integrator at least once every time that the game updates, or at any point in time that you change your list of mods.
+
+.. _`atenfyr/AstroModLoader-Classic GitHub repository`: https://github.com/atenfyr/AstroModLoader-Classic/releases/latest
+
 How can I tell if a mod is compatible with the latest game version?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Any mods that were last updated before November 21st, 2025, are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked.
@@ -59,6 +88,10 @@ It is theoretically possible to reconstruct uncooked assets from the information
 .. _`JsonAsAsset`: https://github.com/JsonAsAsset/JsonAsAsset
 .. _`UEAssetToolkitGenerator`: https://github.com/LongerWarrior/UEAssetToolkitGenerator
 
+What is a .uexp file?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A .uexp file is an extension of a .uasset file, containing the body of each export in binary blob form (i.e., the "Export Information" tab in UAssetGUI). In older versions of the engine, these two files are instead merged together into a single .uasset file. For Astroneer, every .uasset file requires that a .uexp file be present with the same name in the same directory in order for the asset to be parsed.
+
 What is the "mod integrator?"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The mod integrator is a piece of software that modifies base game assets on behalf of other mods. The mod integrator executes whenever a mod is added or removed (or more often) and produces a new mod with the filename ``999-AstroModIntegrator_P.pak`` that contains automatically-modified base game assets. The purpose of the mod integrator is to allow multiple mods to make certain modifications to the same base game asset at once and thus reduce mod conflict, because a base game asset can only be modified by one mod at a time.
@@ -82,9 +115,18 @@ You may also see other prefixes used where a package name would be located, such
 Game Asset Questions
 --------------------------
 
+How can I access the base game's assets?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Follow the guide on the :ref:`basicsetup` page.
+
+I'm getting this error when I try to unpack a .pak file: "Error reading header! Error: Unsupported pak version: 11"!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You are likely still using the "unreal_pak_cli" tool, which fails to parse some .pak files, including the base game's .pak file.
+You should migrate to `trumank's repak`_, which is discussed further on the :ref:`basicsetup` page.
+
 How can I examine and modify .uasset files?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can examine and modify .uasset files using `atenfyr's UAssetGUI`_, which is discussed further on the :ref:`basicmodding` page.
+You can examine and modify .uasset files using `atenfyr's UAssetGUI`_, which is discussed further on the :ref:`basicmodding` page. UAssetGUI is used to modify assets for a wide variety of different Unreal games, but it originated from the Astroneer Modding community, so it is well-suited for parsing and modifying Astroneer game assets.
 
 .. _`atenfyr's UAssetGUI`: https://github.com/atenfyr/UAssetGUI
 
@@ -95,6 +137,59 @@ Yes, you can write your own programs for manipulating .uasset files using `atenf
 Alternatively, UAssetGUI can be used directly to convert .uasset files to-and-from the JSON format via the command line, which can then be used to indirectly examine and manipulate .uasset files in any programming language. You can find more information about UAssetGUI's command line arguments here: https://github.com/atenfyr/UAssetGUI?tab=readme-ov-file#command-line-arguments 
 
 .. _`atenfyr's UAssetAPI`: https://github.com/atenfyr/UAssetAPI
+
+How can I find the class that something inherits from?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In UAssetGUI, locate the BlueprintGeneratedClass export for the asset in question and click on "UStruct Data". The parent class of the class represented by this export is specified in the "Super Struct" field.
+
+How can I find the Class Default Object of some class?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In UAssetGUI, locate the BlueprintGeneratedClass export for the asset in question and click on "UStruct Data". The Class Default Object is the export specified by the property "ClassDefaultObject". This export contains the default value of each of the class's properties for all instances of this class.
+
+How can I get a list of properties that are available in some export?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+First, download and import this set of mappings into UAssetGUI using the Utils -> Import mappings... option: :download:`Astro.usmap <Astro.usmap>`
+
+Once these mappings are imported and then selected in the top-right of the UAssetGUI menu, you can select any export and choose the Utils -> Dump serializable properties... option. This option dumps and opens a .txt file containing all of the valid properties (and their types) that can be specified for the currently selected export.
+
+Why is this export missing some properties?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You are likely observing "delta serialization," where the Unreal Engine deliberately omits serializable properties that have not been changed from their default values. This means that any available property that is not specified is automatically set to its default value.
+
+To set your own value for a property that was not written due to delta serialization, simply add a new row to the export containing the correct name, type, and desired value(s). See the answer to the "How can I get a list of properties that are available in some export?" question for more information on how you can determine the name and type of available properties. You do not need to manually specify the ArrayIndex, Serial Offset, or IsZero fields when creating a new row in UAssetGUI.
+
+How can I change every instance of a string within an asset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In many cases, this can be done by modifying the respective entry in the asset's Name Map. Modifying an entry in the Name Map will change every instance of the name in the asset from the old value to the new value.
+
+Can I add my own imports to an asset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, you can add new rows under the "Import Data" tab as needed.
+
+Can I add my own exports to an asset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, you can add a custom export to an asset. Simply add a new row under the "Export Information" tab, and then select View -> Recalculate Nodes.
+
+The new export will be a typical "NormalExport". The type of the export typically cannot be changed without using UAssetAPI directly or modifying an exported .json file. It is also vitally important to ensure that all fields are specified properly for the new export, including preload dependencies, for the export to load properly in-game. Adding new exports to an asset is an advanced technique that should generally be avoided when possible.
+
+Can I import/export assets to JSON?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, you can export an asset to JSON in UAssetGUI by choosing File -> Save As and changing the output file type to "UAssetAPI JSON". You can then directly re-open the exported .json file (with or without modifications) in UAssetGUI.
+
+The UAssetAPI JSON format is essentially a direct dump of how UAssetAPI represents the asset in memory, and is often difficult to read or effectively modify. There is also no guarantee that a UAssetAPI JSON file will properly parse in future versions of UAssetAPI/UAssetGUI, so exported .json files should generally not be used for long-term storage of assets.
+
+What is Kismet bytecode?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"Kismet bytecode" refers to the proprietary bytecode format used by the Unreal Engine for storing blueprint graphs in cooked game assets for execution. It is similar in concept to Java bytecode or .NET's Common Intermediate Language (CIL/IL).
+
+Can I read and modify Kismet bytecode in UAssetGUI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can read Kismet bytecode in UAssetGUI by selecting the "ScriptBytecode" tab within a Function export. The displayed .json format is a rudimentary visualization and is read-only; it is possible to modify Kismet bytecode by unchecking "Enable pretty bytecode" in the UAssetGUI Settings menu, although this raw format is not practical to modify to any reasonable degree.
+
+To assist in Kismet bytecode-related work, you may wish to use `trumank's kismet-analyzer`_ tool for analyzing and manipulating Kismet bytecode, or you may wish to build `CorporalWill123's work-in-progress fork of UAssetGUI`_, which contains rudimentary node editor support for Kismet bytecode.
+
+.. _`trumank's kismet-analyzer`: https://github.com/trumank/kismet-analyzer
+.. _`CorporalWill123's work-in-progress fork of UAssetGUI`: https://github.com/Corporalwill123/UAssetGUI
 
 How can I find what asset an ObjectProperty points to?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,6 +306,12 @@ My custom item is overwriting another item in the printer menu!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For items that are printed in any printer other than the backpack printer, the item must be to the right of the item's base item in the catalog (i.e., your "Variant Type" must be set to "Right" instead of "Left"). You may wish to consider creating your own row in the catalog for your item.
 
+How can I reference a base game asset in my own assets?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If one does not already exist in the ModdingKit, you will need to create your own "dummy" asset in the editor at the same file path as the base game asset. The new asset should inherit from the same class that the base game asset inherits from (see "How can I find the class that something inherits from?") and contain any properties, components, events, or functions that you wish to reference in your own code and that the base game asset also has. This dummy asset should only be used in the editor and should not be included with your packaged mod.
+
+A dummy asset need not be a fully accurate replica of a base game asset, but any properties, components, events, or functions that you add to the dummy asset should actually exist in the original asset; attempting to access a property or component that does not actually exist in-game may result in a game crash.
+
 How can I add a body slot to my PhysicalItem?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To add a "body slot" (which is the slot that allows your item to slot onto platforms, etc.), add a new Child Slot Component called "BodySlot" and attach it to your Static Mesh Component. Move the slot to its desired location, and modify the "Rotation" parameter so that the blue arrow is facing normal to the surface the slot is on (typically, downwards). Under the Details pane, change the "Child Slot Class" to one of the following:
@@ -278,9 +379,13 @@ How can I make my custom Actor get saved when the user saves the game?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 After cooking your assets, you will have to use UAssetGUI to add a new "bSaveGameRelevant" BoolProperty set to "true" within the class default object. This step is not necessary for PhysicalItem classes, which automatically have bSaveGameRelevant set to true.
 
+How can I allow my users to configure my mod?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can expose a blueprint property to be configurable by checking the "Config Variable" flag on the property (you may need to click the "Show Advanced" arrow button to see this option). This allows users to specify a custom entry in the Engine.ini file to change the property's default value. The new entry will be available in the Engine.ini file under the header ``[/Game/Path/To/Your/ActorFileName.ActorFileName_C]`` (with the appropriate path and file name).
+
 How can I have one of my custom missions be activated by a vanilla mission?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following blueprint code is part of the Rocket Launcher Mod example in the AstroTechies ModdingKit, and is placed in a persistent actor:
+The following blueprint code is part of the Rocket Launcher Mod example by atenfyr in the AstroTechies ModdingKit, and is placed in a persistent actor:
 
 .. image:: faq_mission_unlock1.png
   :width: 1200
@@ -304,6 +409,51 @@ Refer to the code segment below. "Out" is a local variable; it is a map with the
 
 .. image:: faq8.png
   :width: 1200
+
+How can I add toggleable spherical gravity to an item?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This question was contributed by Discord user DaFakeBillGates in the Astroneer Modding Discord server's #mod-resources channel.
+
+.. image:: faq11-DaFakeBillGates.png
+  :width: 1200
+
+How can I add collision to a slotted item?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This question was contributed by Discord user ChunkySpaceman in the Astroneer Modding Discord server's #mod-resources channel.
+
+.. image:: faq12-ChunkySpaceman.png
+  :width: 1200
+
+How can I summon a resource nugget?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This question was contributed by Discord user ChunkySpaceman in the Astroneer Modding Discord server's #mod-resources channel.
+
+.. image:: faq13-ChunkySpaceman.png
+  :width: 1200
+
+How can I speed up the mod deployment process (cook, copy files, package, integrate, launch)?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Several tools have been created to help automate the mod deployment process, such as `GDutch's AstroModPackager`_ or the ModDeployer plugin that is included with the AstroTechies ModdingKit.
+
+With the AstroTechies ModdingKit installed, you can open the ModDeployer plugin in the Unreal Editor by selecting Window -> Mod Deployer. Then, press the "Help" button within the Mod Deployer window to obtain further instructions on how the plugin is used. You can later choose Window -> Quick Deploy or press F5 (by default) to instantly execute the "Run everything" action.
+
+.. image:: faq9.png
+  :width: 400
+
+.. image:: faq10.png
+  :width: 1200
+
+.. _`GDutch's AstroModPackager`: https://github.com/GuidovanHoboken/AstroModPackager
+
+How can I extract sounds from the game?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sounds in Astroneer are stored as Wwise .wem files, with many .wem files being contained within Wwise .bnk archive files located in the ``Astro/Content/WwiseAudio/Windows`` directory. You can extract and edit .bnk archive files using tools like `eXpl0it3r's bnkextr`_ or `monkeyman192's bnkEditor`_. Astroneer .wem files can be converted to-and-from .wav files using `atenfyr's wem2wav2wem.py script`_.
+
+It is currently not feasible to modify base game .bnk files without directly patching the original .pak file, which makes it somewhat impractical to create mods that change game sounds. Further research is necessary in this field.
+
+.. _`eXpl0it3r's bnkextr`: https://github.com/eXpl0it3r/bnkextr
+.. _`monkeyman192's bnkEditor`: https://github.com/monkeyman192/bnkEditor
+.. _`atenfyr's wem2wav2wem.py script`: https://gist.github.com/atenfyr/26c91a534ff8d801501d3c5423160ad9
 
 Where can I find some example mods?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

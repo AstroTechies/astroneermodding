@@ -76,6 +76,7 @@ Modifying the Asset
 -------------------
 
 Now open the ``FloodLight_IT.uasset`` file in the ``TutorialMod`` folder using UAssetGUI.
+You will need to manually select the game's engine version within UAssetGUI to do this, which is 4.27.
 
 Each asset is made from multiple sections. The most interesting ones are usually ``Name Map``,
 ``Import Data`` and most importantly the ``Export Data`` section. Assets can have a few to hundreds
