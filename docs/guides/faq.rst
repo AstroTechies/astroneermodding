@@ -114,21 +114,33 @@ One of the most common ways to find a specific asset is to search for a specific
 
 For example, navigating to the ``Astro\Content\Items\ItemTypes`` directory and executing ``findstr /S /I /M /C:"jetpack" *.uasset`` on the Windows command line will return the paths of every file within the current directory containing the string "jetpack", recursively, including the paths to the item type assets for both the Hydrazine Jetpack and the Solid-Fuel Jump Jet.
 
-You may wish to alternatively refer to the lookup table that was generated below using UAssetAPI on December 31st, 2025, which contains the English name of every item in the game paired with its path on disk. The relevant source code that was used to generate the lookup table is also provided for those who are interested.
+You may wish to alternatively refer to the lookup table that was generated below using UAssetAPI on January 1st, 2026, which contains the English name of every item in the game paired with the path on disk to its ItemType asset. The relevant source code that was used to generate the lookup table is also provided for those who are interested.
 
-.. collapse:: ITLookupTable.json
+.. collapse:: LookupTableIT.json
 
-  .. literalinclude:: ITLookupTable.json
+  .. literalinclude:: LookupTableIT.json
     :language: json
 
-.. collapse:: ITLookupTableGenerator.cs
+.. collapse:: LookupTableGenerator.cs
 
-  .. literalinclude:: ITLookupTableGenerator.cs
+  .. literalinclude:: LookupTableGenerator.cs
     :language: cs
 
 I want to modify a specific item, but I can't find its PhysicalItem asset!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Refer to the question above to try and find the ItemType asset corresponding to the PhysicalItem asset that you are looking for. Then, open the corresponding ItemType asset in UAssetGUI, and examine the ``PickupActor`` field within the Class Default Object (typically Export 2). Follow this import to find the PhysicalItem asset that corresponds to the ``PickupActor`` ObjectProperty (as seen in the "How can I find what asset an ObjectProperty points to?" question).
+
+You may wish to alternatively refer to the lookup table that was generated below using UAssetAPI on January 1st, 2026, which contains the English name of every item in the game paired with the path on disk to its PhysicalItem asset. The relevant source code that was used to generate the lookup table is also provided for those who are interested.
+
+.. collapse:: LookupTableBP.json
+
+  .. literalinclude:: LookupTableBP.json
+    :language: json
+
+.. collapse:: LookupTableGenerator.cs
+
+  .. literalinclude:: LookupTableGenerator.cs
+    :language: cs
 
 How can I add an item to an existing printer?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
