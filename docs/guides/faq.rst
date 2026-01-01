@@ -55,6 +55,16 @@ If needed, you can also run `AstroModIntegrator Classic`_ natively on Linux via 
 .. _`astro_modloader (Rust)`: https://github.com/AstroTechies/astro_modloader/releases/latest
 .. _`AstroModIntegrator Classic`: https://github.com/atenfyr/AstroModLoader-Classic/releases/latest
 
+Can I develop mods on Linux?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Most mod development infrastructure is designed for Windows, and it is highly recommended to develop mods on the Windows operating system.
+
+It is possible to use repak (natively), UAssetGUI (with Wine + Mono), and the Unreal Editor (natively for Ubuntu) on Linux, but guides and advice on doing so are not currently provided on this website.
+
+Can I use mods with a pirated version of the game?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We do not provide support for users using pirated copies of Astroneer.
+
 Can I use mods without any external mod management software?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Yes, you can avoid using any external mod management software by manually executing the mod integrator via the command line, if you so choose. The mod integrator is an absolute requirement for playing with Astroneer mods. This technique will not work for UE4SS mods.
@@ -65,7 +75,7 @@ Place your .pak files manually at the appropriate path (in the ``%localappdata%\
 
 How can I tell if a mod is compatible with the latest game version?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Any mods that were last updated before November 21st, 2025, are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked.
+Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked.
 
 Many mods specify the ``game_build`` field in their ``metadata.json`` file, which provides information about what version of the game the mod is intended to be used with. If this version is unspecified or is not the latest version of the game, the mod is not guaranteed to work, but may work nonetheless. Any mod that is designed for game version 1.35 or earlier is guaranteed to not function on the latest version of the game.
 
@@ -289,6 +299,8 @@ Replace ``/Game/U32_Expansion/Items/HackedCatalog/GW_VP000_Unhack_ItemList`` wit
 * ``/Game/U32_Expansion/Items/HackedCatalog/GW_VP001_Unhack_ItemList``: Delta Rootkit
 * ``/Game/U32_Expansion/Items/HackedCatalog/GW_VP002_Unhack_ItemList``: Zeta Rootkit
 
+You do not need to have the Glitchwalkers DLC purchased or installed to implement this feature or use mods that implement this feature.
+
 If your mod does nothing other than make a vanilla item "hacked" or "unhacked" in the Glitchwalkers DLC, then you don't need to include anything else in your .pak file other than the metadata.json file.
 
 Unreal Editor Questions
@@ -455,6 +467,10 @@ It is currently not feasible to modify base game .bnk files without directly pat
 .. _`monkeyman192's bnkEditor`: https://github.com/monkeyman192/bnkEditor
 .. _`atenfyr's wem2wav2wem.py script`: https://gist.github.com/atenfyr/26c91a534ff8d801501d3c5423160ad9
 
+Can I add custom cosmetics to the game?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We heavily discourage modders from attempting to add custom cosmetics to the game or otherwise tamper with the game's cosmetics systems. The ability to create or modify cosmetics would directly conflict with System Era's systems for paid cosmetics, which could pose a threat to the modding community as a whole.
+
 Where can I find some example mods?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A variety of example mods are provided as part of the AstroTechies ModdingKit, in the ``Astro/Content/Mods`` directory. You are encouraged to refer to these examples while creating your own mods.
@@ -500,4 +516,4 @@ You may wish to examine the following ``main.lua`` script as an example for test
 
 .. warning::
 
-   UE4SS mods are only supported by AstroModLoader Classic and AutoIntegrator-based mod loaders (such as the Vortex Mod Manager). If the ``enable_ue4ss`` field is specified, your mod will no longer be compatible with astro_modloader (Rust).
+   UE4SS mods are only supported by AstroModLoader Classic and AstroModIntegrator Classic-based mod loaders (such as AutoIntegrator, Vortex Mod Manager). If the ``enable_ue4ss`` field is specified, your mod will no longer be compatible with astro_modloader (Rust).
