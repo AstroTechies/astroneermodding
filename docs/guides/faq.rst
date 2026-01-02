@@ -73,6 +73,10 @@ Place your .pak files manually at the appropriate path (in the ``%localappdata%\
 
 .. _`atenfyr/AstroModLoader-Classic GitHub repository`: https://github.com/atenfyr/AstroModLoader-Classic/releases/latest
 
+How do I install a mod using a mod manager?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mods are distributed as .pak files. Simply drag-and-drop the mod's .pak file onto the window of the mod manager you are using.
+
 How can I tell if a mod is compatible with the latest game version?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked.
@@ -247,6 +251,35 @@ You may wish to alternatively refer to the lookup table that was generated below
   .. literalinclude:: LookupTableGenerator.cs
     :language: cs
 
+How can I import a resource in UAssetGUI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the Import Data section of the asset in UAssetGUI, add the following imports to the bottom of your Import Map. Each of the negative numbers is a placeholder, and should be replaced with the actual number of the import in your asset.
+
+Replace -2 with the number of the second import that was added. Replace -4 with the number of the fourth import that was added.
+Replace "/Game/Items/ItemTypes/Intermediates/Carbon" with the path to the item type of the resource, and replace "Carbon_C" with the file name followed by "_C". See the "I want to modify a specific item, but I can't find its ItemType asset!" question for more information.
+
+* Line -1: ``["/Script/Engine","BlueprintGeneratedClass","-4","Carbon_C","False",""]``
+* Line -2: ``["/Game/Items/ItemTypes/Intermediates/Carbon","Carbon_C","-4","Default__Carbon_C","False",""]``
+* Line -3: ``["/Script/Astro","ItemCatalogData","-2","ItemCatalogData_0","False",""]``
+* Line -4: ``["/Script/CoreUObject","Package","0","/Game/Items/ItemTypes/Intermediates/Carbon","False",""]``
+* Line -5: ``["/Script/Astro","ResearchSubjectDefinition","-2","ResearchSubjectDefinition_0","False",""]``
+
+Copy and paste each of these lines into the bottom rows of the Import Data section in UAssetGUI. To refer to this object in an ObjectProperty, use the number of the first import that was added (in this case, -1).
+
+How can I change the recipe of an existing item in UAssetGUI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+First, find the item's ItemType asset. Then, find the "ConstructionRecipe" StructProperty in the class default object export (typically Export 2). This struct contains an array of "Ingredients", where each entry of the array is a StructProperty of type ``ItemRecipeIngredient``.
+
+To add a new ingredient, simply copy one of "Ingredients StructProperty ItemRecipeIngredient" rows within the Ingredients ArrayProperty and paste it to create a new, identical row. Adjust the ItemType ObjectProperty to point to the correct resource, and adjust the Count FloatProperty to be the correct number of resources. The ItemType is an ObjectProperty referencing an import that imports a resource's ItemType asset; see the "How can I import a resource in UAssetGUI?" question for more information. 
+
+To delete one of the ingredients, simply remove the corresponding "Ingredients StructProperty ItemRecipeIngredient" row.
+
+How can I modify an attached component in UAssetGUI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Each component that is attached to an Actor corresponds to a distinct Export whose type is the type of the component (for example, a PowerComponent will have a node named "PowerComponent" within the respective export). Exports are typically sorted alphabetically, which can make it much quicker to identify the export in question after using View -> Expand All in UAssetGUI.
+
+Spaces are removed from the name of any property visible in the Unreal Editor when serializing; for example, "Net Power Output" is serialized as "NetPowerOutput".
+
 How can I add an item to an existing printer?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Add the following entry to your metadata.json file. If the "integrator" or "item_list_entries" tags already exist in your metadata.json file, merge these new entries with your existing entries.
@@ -316,7 +349,9 @@ This is a general indicator that there is some issue in your mod setup or in the
 
 My custom item is overwriting another item in the printer menu!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For items that are printed in any printer other than the backpack printer, the item must be to the right of the item's base item in the catalog (i.e., your "Variant Type" must be set to "Right" instead of "Left"). You may wish to consider creating your own row in the catalog for your item.
+For items that are printed in any printer other than the backpack printer, the item must be to the right of the item's base item in the catalog (i.e., your "Variant Type" must be set to "Right" instead of "Left").
+
+You may wish to consider creating your own row in the catalog for your item. When doing so, you must also ensure that the category sequence number and variation sequence number do not overlap with an existing item.
 
 How can I reference a base game asset in my own assets?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -366,6 +401,7 @@ To set up the Actor Streaming Power Node, add the following data to the Physical
 
 .. image:: faq6.png
   :width: 400
+  :alt: under Actor Entity Link Component -> Entity Definition, add one entry to the Components array, then set Components -> 0 -> Name to "StreamingPowerNode", Components -> 0 -> Component Type to "StreamingPowerNodeComponentContainer", Components -> 0 -> "Linked Actor Component Name" to "ActorStreamingPowerNode", and leave "Component Subobject Definitions" as an empty array
 
 How can I have my item consume/produce power?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -414,6 +450,7 @@ Refer to the code segment below. You must reference ``IntegratorStatics_BP`` in 
 
 .. image:: faq7.png
   :width: 1200
+  :alt: Get Integrator Statics Generic -> Construct Integrator Statics BP -> get Integrator Version and Refuse Mismatched Connections from the constructed Integrator Statics BP
 
 How can I get a list of all mods that are enabled?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -421,6 +458,7 @@ Refer to the code segment below. "Out" is a local variable; it is a map with the
 
 .. image:: faq8.png
   :width: 1200
+  :alt: Get Data Table Row Names from Table ListOfMods -> For Each Loop, retrieve each row using Get Data Table Row ListOfMods
 
 How can I add toggleable spherical gravity to an item?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -441,6 +479,33 @@ How can I summon a resource nugget?
 This question was contributed by Discord user ChunkySpaceman in the Astroneer Modding Discord server's #mod-resources channel.
 
 .. image:: faq13-ChunkySpaceman.png
+  :width: 1200
+
+How can I add oxygen support to an item?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This question was contributed by Discord user thecodingpro in the Astroneer Modding Discord server's #mod-resources channel.
+
+.. image:: faq14-Coding.png
+  :width: 1200
+
+.. image:: faq15-Coding.png
+  :width: 1200
+
+.. image:: faq16-Coding.png
+  :width: 1200
+
+How can I get the data of all the missions that the player has tracked?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This question was contributed by Discord user g.dutch in the Astroneer Modding Discord server's #mod-resources channel.
+
+.. image:: faq17-GDutch.png
+  :width: 1200
+
+How can I generate a unique ID for a save game?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This technique was contributed by Discord user g.dutch in the Astroneer Modding Discord server's #mod-resources channel.
+
+.. image:: faq18-GDutch.png
   :width: 1200
 
 How can I speed up the mod deployment process (cook, copy files, package, integrate, launch)?
@@ -517,3 +582,10 @@ You may wish to examine the following ``main.lua`` script as an example for test
 .. warning::
 
    UE4SS mods are only supported by AstroModLoader Classic and AstroModIntegrator Classic-based mod loaders (such as AutoIntegrator, Vortex Mod Manager). If the ``enable_ue4ss`` field is specified, your mod will no longer be compatible with astro_modloader (Rust).
+
+What is AutoIntegrator?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`atenfyr's AutoIntegrator`_ is a UE4SS C++ mod that allows AstroModLoader .pak mods to be loaded as typical UE4SS LogicMods. It does this by executing AstroModIntegrator Classic in the background every time that the game launches.
+
+.. _`atenfyr's AutoIntegrator`: https://new.thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/

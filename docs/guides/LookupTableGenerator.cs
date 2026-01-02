@@ -79,7 +79,9 @@ foreach (string assetPath in allPotentialAssets)
         UAsset y = new UAsset(assetPath, EngineVersion.VER_UE4_27, null, CustomSerializationFlags.SkipPreloadDependencyLoading | CustomSerializationFlags.SkipParsingBytecode | CustomSerializationFlags.SkipParsingExports);
         if (y.Exports.Count > 10) continue; // all item types should have 3 exports
         y = new UAsset(assetPath, EngineVersion.VER_UE4_27, null, CustomSerializationFlags.SkipPreloadDependencyLoading | CustomSerializationFlags.SkipParsingBytecode);
-        if (y.GetClassExport()?.SuperStruct?.ToImport(y)?.ObjectName?.ToString() != "ItemType") continue;
+
+        string? objectName = y.GetClassExport()?.SuperStruct?.ToImport(y)?.ObjectName?.ToString();
+        if (objectName != "ItemType" && objectName != "BoxedResource_C" && objectName != "CanisterResource_C") continue;
 
         string? finalName = null;
         string? pickupActorPath = null;
@@ -121,9 +123,9 @@ foreach (string assetPath in allPotentialAssets)
             if (itemNameToPath1.ContainsKey(finalName))
             {
                 dynamic curVal = itemNameToPath1[finalName];
-                if (curVal == null || curVal == formattedAssetPath) itemNameToPath1[finalName] = formattedAssetPath;
-                else if (curVal is string) itemNameToPath1[finalName] = new HashSet<string>() { curVal, formattedAssetPath };
-                else itemNameToPath1[finalName].Add(formattedAssetPath);
+                if (curVal == null || (curVal is string && curVal == formattedAssetPath)) itemNameToPath1[finalName] = formattedAssetPath;
+                else if (curVal is List<string>) itemNameToPath1[finalName].Add(formattedAssetPath);
+                else if (curVal is string) itemNameToPath1[finalName] = new List<string>() { curVal, formattedAssetPath };
             }
             else
             {
@@ -135,9 +137,9 @@ foreach (string assetPath in allPotentialAssets)
                 if (itemNameToPath2.ContainsKey(finalName))
                 {
                     dynamic curVal = itemNameToPath2[finalName];
-                    if (curVal == null || curVal == pickupActorPath) itemNameToPath1[finalName] = pickupActorPath;
-                    else if (curVal is string) itemNameToPath2[finalName] = new HashSet<string>() { curVal, pickupActorPath };
-                    else itemNameToPath2[finalName].Add(pickupActorPath);
+                    if (curVal == null || (curVal is string && curVal == pickupActorPath)) itemNameToPath2[finalName] = pickupActorPath;
+                    else if (curVal is List<string>) itemNameToPath2[finalName].Add(pickupActorPath);
+                    else if (curVal is string) itemNameToPath2[finalName] = new List<string>() { curVal, pickupActorPath };
                 }
                 else
                 {
