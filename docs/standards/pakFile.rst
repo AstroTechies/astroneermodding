@@ -20,4 +20,4 @@
 -  ``{VERSION}`` represents the current revision of the mod file. The version MUST be represented by at least two numbers separated by periods,
    but ultimately SHOULD be ``MAJOR.MINOR.PATCH`` .
 
--  The ``_P`` at the end of the file's name is a requirement for the mod to load.
+-  The ``_P`` at the end of the file's name is a requirement for the mod to load. This designates that the .pak file is a "patch", meaning that it will always load after the base game's paks load, no matter what.

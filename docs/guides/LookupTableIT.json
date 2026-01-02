@@ -12,6 +12,10 @@
   "{(}]]~]]&/-% %/~^#)": "/Game/Items/ItemTypes/Missions/RiftAnchor_RailsB_IT",
   "{*^]<}/?@(!]]": "/Game/Items/Snails/MissionItems/Snails_RiftAnchor_IT",
   "</-/4|\\|4>": "/Game/Scenarios/Limited/2024_LTE_Spring/Spring_EventItem1_IT",
+  "Aeoluz": [
+    "/Game/U32_Expansion/Planets/GlitchPlanet/GlitchPlanet_IT",
+    "/Game/Items/ItemTypes/Intangibles/Planets/Aeoluz"
+  ],
   "Aero": "/Game/Items/ItemTypes/CreativeDroneIT",
   "Alignment Mod": "/Game/Items/ItemTypes/Components/Augment_FixedAlignment",
   "Alpha Gateway Terminal Access Slot": "/Game/U32_Expansion/Puzzles/CounterhackKeyhole_BASE_IT",
@@ -29,9 +33,15 @@
   "Ammonium": "/Game/Items/ItemTypes/Minables/Ammonium",
   "Arctichoke Seed": "/Game/U36_Expansion/Items/Seeds/ItemType_Seed_Harvestable_Artichoke",
   "Argon": "/Game/Items/ItemTypes/Gases/Argon",
+  "Asteroid": [
+    "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_Asteroid",
+    "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_Asteroid_02"
+  ],
+  "Asteroid Field": "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_AsteroidField",
   "Astral Figurine": "/Game/Items/ItemTypes/Limited/Holiday/Holiday_Figurine1_IT",
   "Astronium": "/Game/Items/ItemTypes/Minables/Astronium",
   "Atmospheric Condenser": "/Game/Items/ItemTypes/Components/AtmosphericCondenser",
+  "Atrox": "/Game/Items/ItemTypes/Intangibles/Planets/Radiated",
   "Attactus Sample": "/Game/Items/ItemTypes/Researchables/Hazards/ItemType_Researchable_Shooter_02",
   "Attapetrol": "/Game/Scenarios/Limited/2020_LTE_Halloween/ItemDrive_Resource2_2020_LTE_Halloween",
   "Auto Arm": "/Game/Items/ItemTypes/Components/AutoCraneMedium_IT",
@@ -65,6 +75,7 @@
   ],
   "Cable Splitter": "/Game/Items/ItemTypes/Components/Transformer_Tier1",
   "Cactile Seed": "/Game/Items/ItemTypes/Seeds/ItemType_Seed_Tappable_Arid_Cactus_a",
+  "Calidor": "/Game/Items/ItemTypes/Intangibles/Planets/Arid",
   "Carbon": "/Game/Items/ItemTypes/Intermediates/Carbon",
   "Cassiterite": "/Game/Items/ItemTypes/Minables/Cassiterite",
   "Cauldrangea Roots": [
@@ -77,7 +88,10 @@
   "Chemistry Lab": "/Game/Items/ItemTypes/Components/ResourceCombiner_IT",
   "Clay": "/Game/Items/ItemTypes/Minables/Clay",
   "Coal": "/Game/Items/ItemTypes/Minables/Coal",
-  "Compound": "/Game/Items/ItemTypes/Minables/Compound",
+  "Compound": [
+    "/Game/Items/ItemTypes/Minables/Compound",
+    "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_Compound"
+  ],
   "Conepod Seed": "/Game/U36_Expansion/Items/Seeds/ItemType_Seed_Harvestable_Conepod",
   "Construction Anchor Landing Pad": "/Game/U36_Expansion/PROTO_ASSETS/Wreck/IT_MS_AnchorLandingPad",
   "Copper": "/Game/Items/ItemTypes/Intermediates/Copper",
@@ -96,6 +110,7 @@
   "Debris Bundle": "/Game/Items/ItemTypes/Components/DebrisBundle-ItemType",
   "Delay Repeater": "/Game/Items/ItemTypes/Actuators/Actuator_Timer_IT",
   "Delta Storm Data": "/Game/U32_Expansion/Items/Resources/ResourceNugget_StormData_02_IT",
+  "Desolo": "/Game/Items/ItemTypes/Intangibles/Planets/Barren",
   "Dewtrunk Seed": "/Game/U36_Expansion/Items/Seeds/ItemType_Seed_Harvestable_Dewtrunk",
   "Diamond": "/Game/Items/ItemTypes/Composites/Diamond",
   "Display Case": [
@@ -105,6 +120,7 @@
   "Display Case Platform": "/Game/U36_Expansion/MegaStructures/Museum/IT_MuseumDisplayCase",
   "Distribution Launcher System (DLS) ": "/Game/U36_Expansion/PROTO_ASSETS/Wreck/IT_MS_Wreck",
   "DLS Construction Anchor": "/Game/U36_Expansion/MegaStructures/Anchor/IT_MS_Anchor",
+  "Donut": "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_Torus",
   "Drill Head": "/Game/Items/ItemTypes/Components/DrillHead",
   "Drill Mod 1": "/Game/Items/ItemTypes/Components/Augment_HardTerrain_1",
   "Drill Mod 2": "/Game/Items/ItemTypes/Components/Augment_HardTerrain_2",
@@ -157,6 +173,7 @@
     "/Game/Items/ItemTypes/Fireworks",
     "/Game/U36_Expansion/Items/Missions/IT_Firework_FinalReward"
   ],
+  "Flat Platform": "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_FlatBox",
   "Floodlight": "/Game/Items/ItemTypes/FloodLight_IT",
   "Fractal Rose Seed": "/Game/Items/ItemTypes/Seeds/ItemType_Seed_FractalRose",
   "Fuel Condenser": "/Game/Items/ItemTypes/Components/Condenser",
@@ -171,6 +188,7 @@
     "/Game/Items/ItemTypes/GateTech/GatewayKey_Tundra"
   ],
   "Geothermal": "/Game/Items/ItemTypes/Components/Geothermal",
+  "Glacio": "/Game/Items/ItemTypes/Intangibles/Planets/Tundra",
   "Glass": "/Game/Items/ItemTypes/Intermediates/Glass",
   "Glitch Portal": "/Game/GlitchwalkerPortal_IT",
   "Glitch Portal Anchor": "/Game/U32_Expansion/Items/PortalSpawner/GlitchwalkerPortalSpawner_IT",
@@ -335,6 +353,7 @@
   "Narrow Mod": "/Game/Items/ItemTypes/Components/Augment_PrecisionBrush",
   "New Horizons Probe": "/Game/Items/ItemTypes/WandererProbes/WandererProbe_NH",
   "Nitrogen": "/Game/Items/ItemTypes/Gases/Nitrogen",
+  "Novus": "/Game/Items/ItemTypes/Intangibles/Planets/Exotic_Moon_IT",
   "Noxomaton 002": "/Game/Scenarios/Limited/2024_LTE_Anniversary/Anniversary_Item4_IT",
   "Noxothane": "/Game/Scenarios/Limited/2020_LTE_Halloween/ItemDrive_Resource3_2020_LTE_Halloween",
   "Nubcap Seed": "/Game/U36_Expansion/Items/Seeds/ItemType_Seed_Harvestable_Nubcap",
@@ -391,7 +410,10 @@
   "Research": "/Game/UX/Research_Indicator",
   "Research Chamber": "/Game/Items/ItemTypes/Components/ResearchModule_Tier2",
   "Research Station": "/Game/Items/ItemTypes/Components/Research_Station",
-  "Resin": "/Game/Items/ItemTypes/Minables/Resin",
+  "Resin": [
+    "/Game/Items/ItemTypes/Minables/Resin",
+    "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_Resin"
+  ],
   "Resipound": "/Game/Scenarios/Limited/2024_LTE_Anniversary/Anniversary_Ingredient1_IT",
   "Resource Pod": "/Game/U36_Expansion/PROTO_ASSETS/Biodome/IT_Biodome_ResourceStorage",
   "Robo Bonsai": "/Game/U36_Expansion/Items/Decorations/RoboBonsai/IT_Deco_Bonsai",
@@ -450,6 +472,7 @@
   "Solid-Fuel Thruster": "/Game/Items/ItemTypes/Components/Thruster_Consumable",
   "Spewflower Sample": "/Game/Items/ItemTypes/Researchables/Hazards/ItemType_Researchable_Spewer_01",
   "Sphalerite": "/Game/Items/ItemTypes/Minables/Sphalerite",
+  "Sphere": "/Game/U36_Expansion/Planets/OrbitalPlatformMiniPlanet/IT_MiniPlanet_Sphere",
   "Spinelily Seed": [
     "/Game/Items/ItemTypes/Seeds/ItemType_Seed_Bouncer_Lily_01",
     "/Game/Items/ItemTypes/Seeds/ItemType_Seed_Bouncer_Lily_02",
@@ -474,6 +497,7 @@
     "/Game/Scenarios/Limited/Pumpkins/Pumpkin_Seed_Offspring_01_IT"
   ],
   "Sulfur": "/Game/Items/ItemTypes/Gases/Sulfur",
+  "Sylva": "/Game/Items/ItemTypes/Intangibles/Planets/Terran",
   "Tall Platform": "/Game/Items/ItemTypes/Components/Platform_Tall_T2x1_T1x4_P3_IT",
   "Tall Rail Post": "/Game/Vehicles/Rails/RailPost_Tall_ItemType",
   "Tall Rail Post Bundle": "/Game/Vehicles/Rails/RailPost_TallBundle_ItemType",
@@ -516,6 +540,7 @@
     "/Game/Items/ItemTypes/Destructibles/Destructible_PlacementActor_MissionA_IT",
     "/Game/Items/ItemTypes/Destructibles/Destructible_PlacementActor_MissionB_IT"
   ],
+  "Vesania": "/Game/Items/ItemTypes/Intangibles/Planets/Exotic",
   "Violet Firework": "/Game/Items/ItemTypes/Fireworks/ItemType_Firework_Rocket_Base_Violet",
   "Voyager 2 Probe": "/Game/Items/ItemTypes/WandererProbes/WandererProbe_Voy2",
   "VTOL": "/Game/Vehicles/VTOL/VTOL_IT",

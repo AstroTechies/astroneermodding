@@ -26,7 +26,7 @@ The first mod loader for Astroneer was called AstroModLoader by AstroTechies (pr
 In late 2024, Konsti shut down the astroneermods.space website and left the Astroneer Modding community, which caused astro_modloader (Rust) to become unmaintained.
 Shortly thereafter, atenfyr returned to the Astroneer Modding community, began to maintain astro_modloader (Rust), and also created his own updated fork of the original AstroTechies AstroModLoader, which is now AstroModLoader Classic.
 
-Both mod loaders are compatible with most Astroneer mods, but there are some minor variations that exist between each mod manager's implementation of the mod integrator, discussed further in the :ref:`compatibility` section of the :ref:`metadatav2` page. Most notably, astro_modloader (Rust) does not currently support UE4SS mods.
+Both mod loaders are currently actively maintained and are compatible with most Astroneer mods, but there are some minor variations that exist between each mod manager's implementation of the mod integrator, discussed further in the :ref:`compatibility` section of the :ref:`metadatav2` page. Most notably, astro_modloader (Rust) does not currently support UE4SS mods.
 
 How can I implement Astroneer support for my custom mod manager?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,13 +79,15 @@ Mods are distributed as .pak files. Simply drag-and-drop the mod's .pak file ont
 
 How can I tell if a mod is compatible with the latest game version?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked.
+Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked. (A similar incident occurred in 2022 with the "Xenobiology Update" [1.24.29.0], which updated the engine version from 4.18 to 4.23)
 
 Many mods specify the ``game_build`` field in their ``metadata.json`` file, which provides information about what version of the game the mod is intended to be used with. If this version is unspecified or is not the latest version of the game, the mod is not guaranteed to work, but may work nonetheless. Any mod that is designed for game version 1.35 or earlier is guaranteed to not function on the latest version of the game.
 
 What is a .pak file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The .pak format is an archive file format used by the Unreal Engine for storing multiple files of any type. It is similar in concept to a .zip or .rar file. These files are relatively simple to "zip" or "unzip" using external tools such as `trumank's repak`_.
+
+The .pak format includes support for compression and encryption. As of January 2026, the Astroneer .pak file is compressed, but not encrypted.
 
 .. _`trumank's repak`: https://github.com/trumank/repak
 
@@ -166,11 +168,13 @@ First, download and import this set of mappings into UAssetGUI using the Utils -
 
 Once these mappings are imported and then selected in the top-right of the UAssetGUI menu, you can select any export and choose the Utils -> Dump serializable properties... option. This option dumps and opens a .txt file containing all of the valid properties (and their types) that can be specified for the currently selected export.
 
+These mappings are not required to parse assets for Astroneer (although they are required to parse assets for many other games, including almost all UE5 games), but providing UAssetGUI with a copy of these mappings does have additional benefits, including the ability to dump extra metadata and provide resolution for rare ambiguous serialization.
+
 Why is this export missing some properties?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You are likely observing "delta serialization," where the Unreal Engine deliberately omits serializable properties that have not been changed from their default values. This means that any available property that is not specified is automatically set to its default value.
 
-To set your own value for a property that was not written due to delta serialization, simply add a new row to the export containing the correct name, type, and desired value(s). See the answer to the "How can I get a list of properties that are available in some export?" question for more information on how you can determine the name and type of available properties. You do not need to manually specify the ArrayIndex, Serial Offset, or IsZero fields when creating a new row in UAssetGUI.
+To set your own value for a property that was not written due to delta serialization, simply directly add a new row to the export containing the correct name, type, and desired value(s). See the answer to the "How can I get a list of properties that are available in some export?" question for more information on how you can determine the name and type of available properties. You do not need to manually specify the ArrayIndex, Serial Offset, or IsZero fields when creating a new row in UAssetGUI.
 
 How can I change every instance of a string within an asset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -205,6 +209,12 @@ To assist in Kismet bytecode-related work, you may wish to use `trumank's kismet
 .. _`trumank's kismet-analyzer`: https://github.com/trumank/kismet-analyzer
 .. _`CorporalWill123's work-in-progress fork of UAssetGUI`: https://github.com/Corporalwill123/UAssetGUI
 
+What is "Raw Data" or "Extra Data" in UAssetGUI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For many kinds of exports, UAssetAPI does not contain full serialization support, whether that be because serialization support for that specific export is deprioritized or simply incomplete. In these cases, UAssetGUI will provide an "Extra Data" entry in the tree view, allowing the remaining unparsed binary data to be viewed. In other cases, an export will fail to parse entirely because of some error in the UAssetAPI source code, which will result in the export simply being presented as a raw byte array in a "Raw Data" entry in the tree view.
+
+For both "Extra Data" and "Raw Data", it is possible to view the data in hexadecimal form by selecting the "Extra Data" or "Raw Data" entry in the tree view. The binary data can be imported, exported, or set to a specific number of null bytes using the "Import", "Export", and "Set to null..." buttons above the hex view. In the case of the "Set to null..." button, a prompt will appear requesting the user to enter the number of desired null bytes to replace the binary data with. It is not recommended to attempt to modify this binary data except for in specific circumstances (such as when attempting to create a new export from scratch).
+
 How can I find what asset an ObjectProperty points to?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Given an ObjectProperty within an asset, examine the asset's Import Map to find the import that the ObjectProperty points to (defined by a negative number in the property's "Variant" field). Then, follow that import's OuterIndex, which points to another import. That import will then have the path to the corresponding asset under the ``ObjectName`` column. 
@@ -237,7 +247,7 @@ You may wish to alternatively refer to the lookup table that was generated below
 
 I want to modify a specific item, but I can't find its PhysicalItem asset!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Refer to the question above to try and find the ItemType asset corresponding to the PhysicalItem asset that you are looking for. Then, open the corresponding ItemType asset in UAssetGUI, and examine the ``PickupActor`` field within the Class Default Object (typically Export 2). Follow this import to find the PhysicalItem asset that corresponds to the ``PickupActor`` ObjectProperty (as seen in the "How can I find what asset an ObjectProperty points to?" question).
+Refer to the question above to try and find the ItemType asset corresponding to the PhysicalItem asset that you are looking for. Then, open the corresponding ItemType asset in UAssetGUI, and examine the ``PickupActor`` field within the Class Default Object (an export with a name starting with ``Default__``; typically Export 2 for ItemType assets). Follow this import to find the PhysicalItem asset that corresponds to the ``PickupActor`` ObjectProperty (as seen in the "How can I find what asset an ObjectProperty points to?" question).
 
 You may wish to alternatively refer to the lookup table that was generated below using UAssetAPI on January 1st, 2026, which contains the English name of every item in the game paired with the path on disk to its PhysicalItem asset. The relevant source code that was used to generate the lookup table is also provided for those who are interested.
 
@@ -268,17 +278,29 @@ Copy and paste each of these lines into the bottom rows of the Import Data secti
 
 How can I change the recipe of an existing item in UAssetGUI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-First, find the item's ItemType asset. Then, find the "ConstructionRecipe" StructProperty in the class default object export (typically Export 2). This struct contains an array of "Ingredients", where each entry of the array is a StructProperty of type ``ItemRecipeIngredient``.
+First, find the item's ItemType asset. Then, find the "ConstructionRecipe" StructProperty in the Class Default Object export (an export with a name starting with ``Default__``; typically Export 2 for ItemType assets). This struct contains an array of "Ingredients", where each entry of the array is a StructProperty of type ``ItemRecipeIngredient``.
 
 To add a new ingredient, simply copy one of "Ingredients StructProperty ItemRecipeIngredient" rows within the Ingredients ArrayProperty and paste it to create a new, identical row. Adjust the ItemType ObjectProperty to point to the correct resource, and adjust the Count FloatProperty to be the correct number of resources. The ItemType is an ObjectProperty referencing an import that imports a resource's ItemType asset; see the "How can I import a resource in UAssetGUI?" question for more information. 
 
 To delete one of the ingredients, simply remove the corresponding "Ingredients StructProperty ItemRecipeIngredient" row.
 
-How can I modify an attached component in UAssetGUI?
+How can I modify an attached Actor Component in UAssetGUI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Each component that is attached to an Actor corresponds to a distinct Export whose type is the type of the component (for example, a PowerComponent will have a node named "PowerComponent" within the respective export). Exports are typically sorted alphabetically, which can make it much quicker to identify the export in question after using View -> Expand All in UAssetGUI.
+Actor Components in Astroneer are objects "attached" to Actors that are used to handle a variety of different abstract behaviors. For items, some common components include ``ItemComponent``, ``EntityLinkComponent``, ``TerrainComponent``, ``StaticMeshComponent``, ``GravityComponent``, ``ClickableComponent``, ``SlotsComponent``, ``TooltipComponent``, ``PrinterComponent``, ``PowerComponent``, ``VehicleSlotComponent``, ``OxygenatorComponent``, ``PhysicsMovementComponent``, ``ChildSlotComponent``, ``SceneComponent``, and so on.
+
+Each Actor Component that is attached to an Actor corresponds to a distinct Export whose type is the type of the component (for example, a PowerComponent will have a node named "PowerComponent" within the respective export). Exports are typically sorted alphabetically, which can make it much quicker to identify the export in question after using View -> Expand All in UAssetGUI.
 
 Spaces are removed from the name of any property visible in the Unreal Editor when serializing; for example, "Net Power Output" is serialized as "NetPowerOutput".
+
+How can I change what gases a planet has available?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Modify the "AtmosphericResources" ArrayProperty in one of the assets within ``Astro\Content\Planets\PlanetAssets`` (T2_Planet_Arid, T2_Planet_Exotic, T2_Planet_ExoticMoon, T2_Planet_Radiated, T2_Planet_Terran, T2_Planet_TerranMoon, or T2_Planet_Tundra). It is an array of "AtmosphericResource" structs, each of which has a "ResourceItemType" ObjectProperty and a "Density" FloatProperty. Typically, all gases are present in this array even if the "Density" is set to zero, so the change is trivial.
+
+How can I change the resource of a Gateway Engine?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Modify the "Engine-Specific Ingredient" ObjectProperty in the class default object of one of the assets in ``Astro\Content\Scenarios\Gates\Engines`` (GatewayEngine_Arid, GatewayEngine_Exotic, GatewayEngine_Terran, etc.). See the "How can I import a resource in UAssetGUI?" question for more information.
+
+You may also want to change the material used for displaying the resource: you can change the Name Map entry ``/Game/Materials/GateTech/Glyphs/MI_Chamber_Glyph_Display_ExplosivePowder`` for another material in the ``/Game/Materials/GateTech/Glyphs/`` directory, but this only works for a limited range of resources.
 
 How can I add an item to an existing printer?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -352,6 +374,10 @@ My custom item is overwriting another item in the printer menu!
 For items that are printed in any printer other than the backpack printer, the item must be to the right of the item's base item in the catalog (i.e., your "Variant Type" must be set to "Right" instead of "Left").
 
 You may wish to consider creating your own row in the catalog for your item. When doing so, you must also ensure that the category sequence number and variation sequence number do not overlap with an existing item.
+
+Can I test mods within the Unreal Editor?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+No, you must test your mods in the actual game by cooking your assets, packaging the mod, executing the integrator/mod manager, and starting the game. There are options available to help automate this process: see the answer to the "How can I speed up the mod deployment process (cook, copy files, package, integrate, launch)?" question.
 
 How can I reference a base game asset in my own assets?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -543,6 +569,16 @@ A variety of example mods are provided as part of the AstroTechies ModdingKit, i
 UE4SS Questions
 --------------------------
 
+What is UE4SS, and what can I use it for?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UE4SS (the Unreal Engine 4/5 Scripting System) is a powerful open-source framework for scripting and modding Unreal Engine games at runtime. UE4SS allows you to execute Lua scripts (or even inject custom C++ mods) that can reference and manipulate arbitrarily Unreal Engine objects and properties in real-time. You can find more information about UE4SS on the `UE4SS-RE/RE-UE4SS GitHub repository`_.
+
+In the context of Astroneer mods, UE4SS is often used specifically for accessing properties and functions that are inaccessible through blueprints, or for creating hooks into engine functions to accomplish tasks that would be much more complex or impossible to perform through blueprints alone. Most mods do not necessarily need to use UE4SS, but a UE4SS script can often significantly reduce the complexity of implementation for some mods, or accomplish things that are not possible to do through blueprints alone (such as file access or Internet access).
+
+One common development strategy is to use UE4SS primarily to directly hook certain functions or access certain properties as required, and then perform the bulk of the logic within blueprints by executing blueprint methods via Lua. You may wish to reference these guides for the video game Palworld for more information on developing Lua scripts for UE4SS: https://pwmodding.wiki/docs/category/lua-modding
+
+.. _`UE4SS-RE/RE-UE4SS GitHub repository`: https://github.com/UE4SS-RE/RE-UE4SS
+
 How can I add a UE4SS .lua script to my mod?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Set the "enable_ue4ss" field to "true" in your metadata.json file, as in the example below:
@@ -586,6 +622,6 @@ You may wish to examine the following ``main.lua`` script as an example for test
 What is AutoIntegrator?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`atenfyr's AutoIntegrator`_ is a UE4SS C++ mod that allows AstroModLoader .pak mods to be loaded as typical UE4SS LogicMods. It does this by executing AstroModIntegrator Classic in the background every time that the game launches.
+`atenfyr's AutoIntegrator`_ is a UE4SS C++ mod that allows AstroModLoader .pak mods to be loaded as typical UE4SS LogicMods. It does this by executing AstroModIntegrator Classic in the background every time that the game launches. The mod is not required for users to use UE4SS with Astroneer, but it can help reduce reliance on external mod management software.
 
 .. _`atenfyr's AutoIntegrator`: https://new.thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/
