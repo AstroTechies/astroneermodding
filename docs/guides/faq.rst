@@ -261,18 +261,15 @@ You may wish to alternatively refer to the lookup table that was generated below
   .. literalinclude:: LookupTableGenerator.cs
     :language: cs
 
-How can I import a resource in UAssetGUI?
+How can I import an item type in UAssetGUI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the Import Data section of the asset in UAssetGUI, add the following imports to the bottom of your Import Map. Each of the negative numbers is a placeholder, and should be replaced with the actual number of the import in your asset.
 
-Replace -2 with the number of the second import that was added. Replace -4 with the number of the fourth import that was added.
+Replace -2 with the number of the second import that was added.
 Replace "/Game/Items/ItemTypes/Intermediates/Carbon" with the path to the item type of the resource, and replace "Carbon_C" with the file name followed by "_C". See the "I want to modify a specific item, but I can't find its ItemType asset!" question for more information.
 
-* Line -1: ``["/Script/Engine","BlueprintGeneratedClass","-4","Carbon_C","False",""]``
-* Line -2: ``["/Game/Items/ItemTypes/Intermediates/Carbon","Carbon_C","-4","Default__Carbon_C","False",""]``
-* Line -3: ``["/Script/Astro","ItemCatalogData","-2","ItemCatalogData_0","False",""]``
-* Line -4: ``["/Script/CoreUObject","Package","0","/Game/Items/ItemTypes/Intermediates/Carbon","False",""]``
-* Line -5: ``["/Script/Astro","ResearchSubjectDefinition","-2","ResearchSubjectDefinition_0","False",""]``
+* Line -1: ``["/Script/Engine","BlueprintGeneratedClass","-2","Carbon_C","False",""]``
+* Line -2: ``["/Script/CoreUObject","Package","0","/Game/Items/ItemTypes/Intermediates/Carbon","False",""]``
 
 Copy and paste each of these lines into the bottom rows of the Import Data section in UAssetGUI. To refer to this object in an ObjectProperty, use the number of the first import that was added (in this case, -1).
 
@@ -280,7 +277,7 @@ How can I change the recipe of an existing item in UAssetGUI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 First, find the item's ItemType asset. Then, find the "ConstructionRecipe" StructProperty in the Class Default Object export (an export with a name starting with ``Default__``; typically Export 2 for ItemType assets). This struct contains an array of "Ingredients", where each entry of the array is a StructProperty of type ``ItemRecipeIngredient``.
 
-To add a new ingredient, simply copy one of "Ingredients StructProperty ItemRecipeIngredient" rows within the Ingredients ArrayProperty and paste it to create a new, identical row. Adjust the ItemType ObjectProperty to point to the correct resource, and adjust the Count FloatProperty to be the correct number of resources. The ItemType is an ObjectProperty referencing an import that imports a resource's ItemType asset; see the "How can I import a resource in UAssetGUI?" question for more information. 
+To add a new ingredient, simply copy one of "Ingredients StructProperty ItemRecipeIngredient" rows within the Ingredients ArrayProperty and paste it to create a new, identical row. Adjust the ItemType ObjectProperty to point to the correct resource, and adjust the Count FloatProperty to be the correct number of resources. The ItemType is an ObjectProperty referencing an import that imports a resource's ItemType asset; see the "How can I import an item type in UAssetGUI?" question for more information. 
 
 To delete one of the ingredients, simply remove the corresponding "Ingredients StructProperty ItemRecipeIngredient" row.
 
@@ -298,7 +295,7 @@ Modify the "AtmosphericResources" ArrayProperty in one of the assets within ``As
 
 How can I change the resource of a Gateway Engine?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Modify the "Engine-Specific Ingredient" ObjectProperty in the class default object of one of the assets in ``Astro\Content\Scenarios\Gates\Engines`` (GatewayEngine_Arid, GatewayEngine_Exotic, GatewayEngine_Terran, etc.). See the "How can I import a resource in UAssetGUI?" question for more information.
+Modify the "Engine-Specific Ingredient" ObjectProperty in the class default object of one of the assets in ``Astro\Content\Scenarios\Gates\Engines`` (GatewayEngine_Arid, GatewayEngine_Exotic, GatewayEngine_Terran, etc.). See the "How can I import an item type in UAssetGUI?" question for more information.
 
 You may also want to change the material used for displaying the resource: you can change the Name Map entry ``/Game/Materials/GateTech/Glyphs/MI_Chamber_Glyph_Display_ExplosivePowder`` for another material in the ``/Game/Materials/GateTech/Glyphs/`` directory, but this only works for a limited range of resources.
 

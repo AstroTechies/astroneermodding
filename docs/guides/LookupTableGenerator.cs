@@ -11,11 +11,11 @@ string contentDirectory = @"D:\Games\steamapps\common\ASTRONEER\Astro\Content\Pa
 string outputPath1 = @"D:\amoddocs\docs\guides\LookupTableIT.json";
 string outputPath2 = @"D:\amoddocs\docs\guides\LookupTableBP.json";
 // banned directories
-List<string> bannedDirectories = new List<string>() { "Animations", "Models", "Textures", "Intangibles", "Developers", "OrbitalPlatformMiniPlanet" };
+List<string> bannedDirectories = new List<string>() { "Animations", "Models", "Textures", "Developers" };
 // banned files
 HashSet<string> bannedFiles = new HashSet<string>() { "/Game/Items/ItemTypes/Components/MediumPrinter" };
 // banned names
-HashSet<string> bannedNames = new HashSet<string>() { "Packaged Item", "Research Sample", "RESEARCH SAMPLE", "Unknown", "Detritus", "Aeoluz", "Asteroid", "MODULE" };
+HashSet<string> bannedNames = new HashSet<string>() { "Packaged Item", "Research Sample", "RESEARCH SAMPLE", "Unknown", "Detritus", "MODULE" };
 
 string FormatPath(string rawPath)
 {
