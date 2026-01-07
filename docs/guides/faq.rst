@@ -266,7 +266,7 @@ How can I import an item type in UAssetGUI?
 In the Import Data section of the asset in UAssetGUI, add the following imports to the bottom of your Import Map. Each of the negative numbers is a placeholder, and should be replaced with the actual number of the import in your asset.
 
 Replace -2 with the number of the second import that was added.
-Replace "/Game/Items/ItemTypes/Intermediates/Carbon" with the path to the item type of the resource, and replace "Carbon_C" with the file name followed by "_C". See the "I want to modify a specific item, but I can't find its ItemType asset!" question for more information.
+Replace "/Game/Items/ItemTypes/Intermediates/Carbon" with the path to the item type, and replace "Carbon_C" with the file name followed by "_C". See the "I want to modify a specific item, but I can't find its ItemType asset!" question for more information.
 
 * Line -1: ``["/Script/Engine","BlueprintGeneratedClass","-2","Carbon_C","False",""]``
 * Line -2: ``["/Script/CoreUObject","Package","0","/Game/Items/ItemTypes/Intermediates/Carbon","False",""]``
@@ -295,9 +295,9 @@ Modify the "AtmosphericResources" ArrayProperty in one of the assets within ``As
 
 How can I change the resource of a Gateway Engine?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Modify the "Engine-Specific Ingredient" ObjectProperty in the class default object of one of the assets in ``Astro\Content\Scenarios\Gates\Engines`` (GatewayEngine_Arid, GatewayEngine_Exotic, GatewayEngine_Terran, etc.). See the "How can I import an item type in UAssetGUI?" question for more information.
+Modify the "Engine-Specific Ingredient" ObjectProperty in the class default object of one of the assets in ``Astro\Content\Scenarios\Gates\Engines`` (GatewayEngine_Arid, GatewayEngine_Exotic, GatewayEngine_Terran, etc.). See the "How can I import an item type in UAssetGUI?" question for more information on importing resources into the asset.
 
-You may also want to change the material used for displaying the resource: you can change the Name Map entry ``/Game/Materials/GateTech/Glyphs/MI_Chamber_Glyph_Display_ExplosivePowder`` for another material in the ``/Game/Materials/GateTech/Glyphs/`` directory, but this only works for a limited range of resources.
+You may also want to change the material used for displaying the resource: you can change the Name Map entry ``/Game/Materials/GateTech/Glyphs/MI_Chamber_Glyph_Display_ExplosivePowder`` (or similar) for another material in the ``/Game/Materials/GateTech/Glyphs/`` directory, but this only works for a limited range of resources.
 
 How can I add an item to an existing printer?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -530,6 +530,16 @@ This technique was contributed by Discord user g.dutch in the Astroneer Modding 
 
 .. image:: faq18-GDutch.png
   :width: 1200
+
+How can I consume a slotted resource?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Execute the "Take Item Rate Delta" function every tick. Pass the Event Tick "Delta Seconds" parameter into the "Take Item Rate Delta" function's "Delta Time" parameter.
+
+You can use the Child Slot Component "Make Reference" function to obtain a Slot Reference to then pass into the "Take Item Rate Delta" function.
+
+How do I set how much scrap an item will produce?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You do not need to manually specify this value, because it is automatically calculated based on the item's recipe. Make sure that "Can be Scrapped" on the ItemType is checked.
 
 How can I speed up the mod deployment process (cook, copy files, package, integrate, launch)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
