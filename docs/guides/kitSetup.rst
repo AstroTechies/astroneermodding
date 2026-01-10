@@ -32,9 +32,9 @@ Modding Kit
 To develop your mods, you will need to use the AstroTechies ModdingKit, which can be downloaded from 
 `this link <https://github.com/AstroTechies/ModdingKit>`_.
 
-The AstroTechies ModdingKit
+Choose "Code" -> "Download ZIP" on the GitHub website and unzip the file to wherever on disk you would like your project to be located.
 
-If you are familiar with version control software, you may wish to clone the ModdingKit for easier updates.
+If you are familiar with version control software, you may wish to instead clone the ModdingKit for easier updates.
 
 Wwise (optional)
 ----------------
@@ -102,7 +102,7 @@ Example:
 
 First-time Launch
 --------------------------------------------------
-Now, open the ``Astro.uproject`` file by double-clicking it. If you receive a pop-up asking if you would like to rebuild missing modules, press "Yes" and wait.
+Now, open the ``Astro.uproject`` file included with the AstroTechies ModdingKit by double-clicking it. If you receive a pop-up asking if you would like to rebuild missing modules, press "Yes" and wait.
 
 If double-clicking the ``Astro.uproject`` file fails to open the project, right-click on ``Astro.uproject``, select "Open with" -> "Choose another app", scroll down and click "Choose an app on your PC," and browse to and select the executable file at ``UE_INSTALL_PATH\Engine\Binaries\Win64\UE4Editor.exe``. Replace **UE_INSTALL_PATH** with your Unreal Engine installation folder, which is usually found at ``C:\Program Files\Epic Games\UE_4.27\``.
 
