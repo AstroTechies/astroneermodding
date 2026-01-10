@@ -1,4 +1,4 @@
-Setting up the Modding Kit
+Setting Up the Modding Kit
 ==========================
 
 .. contents:: Contents
@@ -17,7 +17,6 @@ Desktop development with C++" and "Gaming > Game development with C++".
 If Visual Studio is already installed you can run the installer and press modify to add the
 necessary workloads.
 
-
 Unreal Engine 4
 ---------------
 
@@ -30,16 +29,18 @@ Select 4.27.2 and press install.
 Modding Kit
 -----------
 
-To develop your mods you will need a modkit which can be downloaded from 
+To develop your mods, you will need to use the AstroTechies ModdingKit, which can be downloaded from 
 `this link <https://github.com/AstroTechies/ModdingKit>`_.
 
-If you are familiar with version control software you should clone it for easier updates.
+The AstroTechies ModdingKit
 
+If you are familiar with version control software, you may wish to clone the ModdingKit for easier updates.
 
 Wwise (optional)
 ----------------
+This step is not required.
 
-Astroneer uses Wwise as its sound engine. If you want to make mods which play sounds you need to install Wwise.
+Astroneer uses Wwise as its sound engine. If you want to make mods which play sounds, you may wish to install Wwise.
 
 Go to `Wwise <https://www.audiokinetic.com/en/products/wwise>`_ website and head to ``Get Wwise`` -> ``Download Wwise``.
 
@@ -70,7 +71,7 @@ Click on latest and change it to ``All`` > ``2019.1`` > ``2019.1.8.7173`` and pr
 
 After it has finished installing go to ``Unreal Engine`` tab in the top bar. There press on the burger menu and ``Browse For Project``.
 
-Select ``Astro.uproject`` in the file picker. 
+Select the ``Astro.uproject`` file from the AstroTechies ModdingKit in the file picker. 
 
 Now press ``Integrate WWise into project``. Here select ``All`` > ``2019.1`` > ``2019.1.8.7173``.
 
@@ -78,29 +79,34 @@ In the wwise project path field press on the triangle on the right side and clic
 
 Now press the ``Integrate`` button.
 
-Generating project files
--------------------------
+Generating Visual Studio project files (optional)
+--------------------------------------------------
+This step is not required.
 
-To generate the project files we will need to run the following command:
+If you'd like to use Visual Studio to edit or build the AstroTechies ModdingKit, simply right-click on the ``Astro.uproject`` file and select "Generate Visual Studio project files". You can then open the new "Astro.sln" file in Visual Studio and build the project as desired.
+
+If the option does not appear, you can try to instead execute the following command on the command line:
 
 .. code-block:: 
 
-    "UE_INSTALL_PATH\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="PATH_TO_PROJECT\\Astro.uproject" -game -rocket -progress
+    "UE_INSTALL_PATH\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="PATH_TO_PROJECT\Astro.uproject" -game -rocket -progress
 
 
-Open cmd in your project directory and copy this inside cmd. Remember to replace **UE_INSTALL_PATH** with your unreal engine installation folder which is usually found at ``C:\\Program Files\\Epic Games\UE_4.27\\``.
-
-And remember to change **PATH_TO_PROJECT** with path to the modkit.
+Replace **UE_INSTALL_PATH** with your Unreal Engine installation folder, which is usually found at ``C:\Program Files\Epic Games\UE_4.27\``. Replace **PATH_TO_PROJECT** with the path to your copy of the AstroTechies ModdingKit.
 
 Example:
 
 .. code-block:: 
 
-    "C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="C:\\Users\\username\\Documents\\Astro.uproject" -game -rocket -progress
+    "C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\DotNET\UnrealBuildTool.exe" -projectfiles -project="C:\Users\username\Documents\Astro.uproject" -game -rocket -progress
 
-Run the command, and then open the ``Astro.uproject`` file and if it asks to build unbuilt modules press yes and wait.
+First-time Launch
+--------------------------------------------------
+Now, open the ``Astro.uproject`` file by double-clicking it. If you receive a pop-up asking if you would like to rebuild missing modules, press "Yes" and wait.
+
+If double-clicking the ``Astro.uproject`` file fails to open the project, right-click on ``Astro.uproject``, select "Open with" -> "Choose another app", scroll down and click "Choose an app on your PC," and browse to and select the executable file at ``UE_INSTALL_PATH\Engine\Binaries\Win64\UE4Editor.exe``. Replace **UE_INSTALL_PATH** with your Unreal Engine installation folder, which is usually found at ``C:\Program Files\Epic Games\UE_4.27\``.
 
 Developing Mods
 ---------------
 
-You can now start with :doc:`kitModding`.
+You can now start with the :doc:`kitModding` guide.
