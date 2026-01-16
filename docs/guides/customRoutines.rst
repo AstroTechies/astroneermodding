@@ -13,7 +13,7 @@ Custom Routines
 .. note:: 
     This is an advanced topic, so it is preferred that you already have some experience modding Astroneer.
 
-This guide is designed to help you create custom integrator routines. Custom routines are an experimental feature, available in AstroModLoader Classic v1.8.0.0 or later.
+This guide is designed to help you create custom integrator routines. Custom routines are an experimental feature available in AstroModLoader Classic v1.8.0.0 or later.
 
 Custom routines are segments of C# code that you can include with your mod to be executed at integration time. This allows your mod to make automatic dynamic modifications to game assets; this is similar to what can be done in UAssetGUI, but with improved power, stability, and precision. Custom routines can also read other mods' metadata, meaning that you can define your own metadata entries and modify assets on behalf of other mods, if desired. 
 
