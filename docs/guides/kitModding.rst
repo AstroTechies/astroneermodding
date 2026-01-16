@@ -35,8 +35,8 @@ Click on "Create a blueprint class" and a pop-up window will appear. Click on "O
 
 In the search bar above the class type list, type in "PhysicalItem" and select it once it appears. This menu allows you to select what class your new blueprint will inherit from.  
 
-Then, create the class.  nce the dialog window closes, you should be able to type in the name of the blueprint. Set it to ``ExampleItem_BP`` - it must 
-match this exactly. Then press enter to save your name, and double-click on it to open up the PhysicalItem's settings menu.
+Then, create the class. Once the dialog window closes, you should be able to type in the name of the blueprint. Set it to ``ExampleItem_BP`` - it must 
+match this exactly. Then, press enter to save your name, and double-click on it to open up the PhysicalItem's settings menu.
 
 Now, we want to set the 3D model for that item, so that we have something to look at inside the game.
 To do that, we will need to :ref:`import the mesh <importingMesh>`.
