@@ -131,3 +131,12 @@ The custom routine is implemented using the ``ICustomRoutineAPI.GetAllMods()`` m
 
   .. literalinclude:: ExampleCustomRoutineTradePlatform.cs
     :language: cs
+
+|
+
+As another example, below is provided a copy of the source code of the custom routine used internally by AstroModIntegrator Classic to implement the ``crate_overlay_textures`` integrator routine. This routine is built into the mod integrator and is always enabled, but it would also be valid if implemented as a separate mod (as long as the namespace were to be changed).
+
+.. collapse:: CrateOverlayTexturesCustomRoutine.cs
+
+  .. literalinclude:: CrateOverlayTexturesCustomRoutine.cs
+    :language: cs
