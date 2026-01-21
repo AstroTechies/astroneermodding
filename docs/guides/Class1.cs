@@ -14,6 +14,8 @@ namespace AMLCustomRoutines
         public override string RoutineID => "ExampleCustomRoutine1";
         // Set Enabled to true
         public override bool Enabled => true;
+        // Set APIVersion to 1
+        public override int APIVersion => 1;
 
         // This method will be executed by the mod integrator, after all main routines have finished
         public override void Execute(ICustomRoutineAPI api)

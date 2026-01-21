@@ -8,7 +8,7 @@ Custom Routines
 ---------------------
 
 .. warning:: 
-    Custom routines are an experimental feature in AstroModLoader Classic v1.8.0.0+ and may slightly change over time.
+    Custom routines are only available in AstroModLoader Classic v1.8.0.0 or later.
 
 .. note:: 
     This is an advanced topic, so it is preferred that you already have some experience modding Astroneer.
@@ -33,8 +33,8 @@ Setup
 
 First, you will need to download two DLL files, which we will later use in our project. You can download these files at the following links:
 
-:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.0.0/AstroModIntegrator/CustomRoutineDevKit/AstroModIntegrator.dll`
-:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.0.0/AstroModIntegrator/CustomRoutineDevKit/UAssetAPI.dll`
+:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.1.0/AstroModIntegrator/CustomRoutineDevKit/AstroModIntegrator.dll`
+:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.1.0/AstroModIntegrator/CustomRoutineDevKit/UAssetAPI.dll`
 
 Download these two files to whatever directory you would like.
 
@@ -95,7 +95,7 @@ Now, package the ``000-MyCustomRoutine-0.1.0_P`` folder. (If you followed the :d
 
 Load your new ``000-MyCustomRoutine-0.1.0_P.pak`` file into AstroModLoader Classic. Ensure that "Enable custom integrator routines" is checked under "Settings..." within AstroModLoader Classic.
 
-You can view the integrator's output log by opening the ``%localappdata%\AstroModLoader\ModIntegrator.log`` file in any text editor. You should be able to see the following lines near the bottom of the log file:
+You can view the integrator's output log by opening the ``%localappdata%\AstroModLoader\ModIntegrator.log`` file in any text editor. You should be able to see the following lines near the bottom of the log file, or similar:
 
 .. code-block:: text
 

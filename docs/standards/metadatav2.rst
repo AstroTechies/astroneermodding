@@ -165,6 +165,12 @@ The following is a list of fields that are valid within the root object of the m
       - Each field MUST be a string, with the exception of ``placements``, which instead MUST be a JSON array of game paths to the procedural modifiers to place into this layer.
       - This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
 
+   -  ``crate_overlay_textures``
+  
+      - A standard JSON array of strings, where each string is the package path of a crate overlay texture.
+      - For every specified texture, the integrator will create a custom crate overlay material instance from that texture, and add that material instance to the "CrateLogoMaterialInstances" map in the Astro Game Singleton.
+      - This field is represented as an array, and is OPTIONAL, defaulting to ``[]``.
+
 -  ``dependencies``
 
    - A JSON object containing dependencies that must be fetched for this mod to work.
@@ -178,7 +184,7 @@ Compatibility
 -------------
 The above standards are currently followed by the mod loaders listed below:
 
--  AstroModLoader Classic
+-  AstroModLoader Classic (AMLC)
 
    - full support
    - Blueprint API: https://github.com/atenfyr/AstroModLoader-Classic/tree/master/AstroModIntegrator/BlueprintAssets
@@ -191,8 +197,10 @@ The above standards are currently followed by the mod loaders listed below:
 -  astro_modloader (Rust)
 
    - no support for the ``enable_ue4ss`` field; if used, the mod fails to load
+   - no support for the ``crate_overlay_textures`` field; if used, the mod fails to load
    - no support for the ``thunderstore`` download type; if used, the ``download`` field is ignored
    - no support for using package names with ``persistent_actor_maps`` (only raw paths)
+   - no support for AMLC custom routines or the AMLC-specific ``path_to_custom_routines_dll`` field
    - Blueprint API: https://github.com/AstroTechies/ModdingKit/tree/master/Content/Integrator
 
 Examples

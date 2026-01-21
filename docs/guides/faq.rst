@@ -541,6 +541,33 @@ How do I set how much scrap an item will produce?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You do not need to manually specify this value, because it is automatically calculated based on the item's recipe. Make sure that "Can be Scrapped" on the ItemType is checked.
 
+How do I create a custom crate overlay texture?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the following entry to your metadata.json file. If the "integrator" tag already exists in your metadata.json file, merge these new entries with your existing entries.
+
+.. code-block:: json
+
+  "integrator": {
+      "crate_overlay_textures": [ "/Game/Mods/Path/To/Texture/ui_icon_package_my_new_texture" ]
+  }
+
+Replace ``/Game/Mods/Path/To/Texture/ui_icon_package_my_new_texture`` with the package path of your new crate texture in the Unreal Editor. This texture should have a white background with a transparent logo on top. You may wish to refer to the following example texture: :download:`ui_icon_package_ball_beach.png`
+
+You will also need to set the "Crate Overlay Texture" of your ItemType class in the Unreal Editor to point to your new texture.
+
+This feature is currently only supported by AstroModLoader Classic v1.8.1.0 and higher. If you would like your mod to be compatible with astro_modloader (Rust) or older versions of AstroModLoader Classic, you can also emulate this behavior manually in the Unreal Editor by using the more complex procedure provided below.
+
+Alternative technique for adding custom crate overlay textures
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Create a custom Material Instance (right-click in a folder -> "Materials & Textures" -> "Material Instance") with any name. Set the Parent of the MI to the asset at ``/Game/Materials/modules/palette_exo_dynamic_lights_overlay``. Set the "Overlay_Graphic" texture parameter to your new texture and the "RefractionDepthBias" scalar parameter set to 0 (all other parameters can be left as-is).
+
+Then, implement the following blueprint source code within a new Actor in your mod's directory named "SingletonModifierActor" (or similar). Replace the first value with the file name (not path) of your new texture, and select your new Material Instance as the second value. While selecting the Actor in the Components panel, tick "Always Relevant" and "Actor Hidden In Game" and untick "Start with Tick Enabled" in the Details panel.
+
+.. image:: faq19-atenfyr.png
+  :width: 1200
+
+Add the package path of this Actor to the "persistent_actors" array in your metadata.json file. 
+
 How can I speed up the mod deployment process (cook, copy files, package, integrate, launch)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Several tools have been created to help automate the mod deployment process, such as `GDutch's AstroModPackager`_ or the ModDeployer plugin that is included with the AstroTechies ModdingKit.
