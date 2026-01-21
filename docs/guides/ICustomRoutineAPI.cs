@@ -6,7 +6,8 @@ namespace AstroModIntegrator
 {
     /// <summary>
     /// API for custom routines.
-    /// Version 1
+    /// Version 1.
+    /// Custom routines always execute in the defined mod load order.
     /// </summary>
     public interface ICustomRoutineAPI
     {
