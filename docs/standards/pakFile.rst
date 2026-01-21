@@ -3,7 +3,7 @@
 .pak Mod File Names
 ====================
 
-On distribution, .pak mod file names MUST follow the following format, as to facilitate the usage of mods without a mod loader:**
+On distribution, .pak mod file names MUST follow the following format, in order to help facilitate the usage of mods even without a mod loader:
 
 ``{PRIORITY}-{MOD ID}-{VERSION}_P.pak``
 
