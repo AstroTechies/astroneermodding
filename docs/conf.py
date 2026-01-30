@@ -12,8 +12,17 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
-import os
+import sys, os, traceback, logging
+
+module_filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), "turn_into_text.py")
+code = None
+with open(module_filename, "rb") as f:
+  code = compile(f.read(), module_filename, "exec")
+exec(code)
+try:
+  turn_into_text_go()
+except Exception as e:
+  logging.error(traceback.format_exc())
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -140,7 +149,7 @@ html_static_path = ['_static']
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-#html_extra_path = []
+html_extra_path = ["all_docs_as_text.txt"]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
