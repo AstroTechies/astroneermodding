@@ -486,20 +486,6 @@ Refer to the code segment below. "Out" is a local variable; it is a map with the
   :width: 1200
   :alt: Get Data Table Row Names from Table ListOfMods -> For Each Loop, retrieve each row using Get Data Table Row ListOfMods
 
-How can I add toggleable spherical gravity to an item?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This question was contributed by Discord user DaFakeBillGates in the Astroneer Modding Discord server's #mod-resources channel.
-
-.. image:: faq11-DaFakeBillGates.png
-  :width: 1200
-
-How can I add collision to a slotted item?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This question was contributed by Discord user ChunkySpaceman in the Astroneer Modding Discord server's #mod-resources channel.
-
-.. image:: faq12-ChunkySpaceman.png
-  :width: 1200
-
 How can I summon a resource nugget?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This question was contributed by Discord user ChunkySpaceman in the Astroneer Modding Discord server's #mod-resources channel.
@@ -509,7 +495,7 @@ This question was contributed by Discord user ChunkySpaceman in the Astroneer Mo
 
 How can I add oxygen support to an item?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This question was contributed by Discord user thecodingpro in the Astroneer Modding Discord server's #mod-resources channel.
+This question was contributed by Discord user thecodingpro in the Astroneer Modding Discord server's #mod-resources channel. It is their sole intellectual property and not of the AstroTechies organization, and is included here by explicit permission.
 
 .. image:: faq14-Coding.png
   :width: 1200
@@ -522,14 +508,14 @@ This question was contributed by Discord user thecodingpro in the Astroneer Modd
 
 How can I get the data of all the missions that the player has tracked?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This question was contributed by Discord user g.dutch in the Astroneer Modding Discord server's #mod-resources channel.
+This question was contributed by Discord user g.dutch in the Astroneer Modding Discord server's #mod-resources channel. It is their sole intellectual property and not of the AstroTechies organization, and is included here by explicit permission.
 
 .. image:: faq17-GDutch.png
   :width: 1200
 
 How can I generate a unique ID for a save game?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This technique was contributed by Discord user g.dutch in the Astroneer Modding Discord server's #mod-resources channel.
+This technique was contributed by Discord user g.dutch in the Astroneer Modding Discord server's #mod-resources channel. It is their sole intellectual property and not of the AstroTechies organization, and is included here by explicit permission.
 
 .. image:: faq18-GDutch.png
   :width: 1200
