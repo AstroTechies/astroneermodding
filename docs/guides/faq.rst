@@ -50,10 +50,13 @@ Can I use mods on Linux?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Yes, you can use mods on Linux. You can execute `astro_modloader (Rust)`_ natively on Linux, or otherwise run AstroModLoader Classic through Wine + Mono.
 
+You may also wish to use mods on Linux by installing `UE4SS`_ and AutoIntegrator, both of which are tested to work well through Proton. AutoIntegrator requires some additional steps to run through Proton. You can find more information about installing AutoIntegrator for Linux here: https://github.com/atenfyr/AutoIntegrator?tab=readme-ov-file#autointegrator
+
 If needed, you can also run `AstroModIntegrator Classic`_ natively on Linux via the command line (use the ModIntegrator-linux-x64 binary).
 
 .. _`astro_modloader (Rust)`: https://github.com/AstroTechies/astro_modloader/releases/latest
 .. _`AstroModIntegrator Classic`: https://github.com/atenfyr/AstroModLoader-Classic/releases/latest
+.. _`UE4SS`: https://github.com/UE4SS-RE/RE-UE4SS
 
 Can I develop mods on Linux?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
