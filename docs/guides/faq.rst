@@ -392,7 +392,7 @@ To add a "body slot" (which is the slot that allows your item to slot onto platf
 * ``PowerSlot_BodySlot``: T1 slot
 * ``Chassis_BodySlot``: T2 slot
 * ``LargeChassis_BodySlot``: T3 slot
-* ``XLChassis_BodySlot``: T4 slot
+* ``XLChassis_BodySlot_Extended``: T4 slot
 
 Note that these types are different than the types used for non-body slots.
 
@@ -416,7 +416,7 @@ As is done for the body slot, first add a new Child Slot Component of any name a
 * ``PowerSlotGeneric``: T1 slot
 * ``ChassisSlot``: T2 slot
 * ``LargeChassisSlot``: T3 slot
-* ``XLChassisSlot``: T4 slot
+* ``XLChassisSlot_Extended``: T4 slot
 * ``PowerSlot_StreamingCable``: power cable slot; change "Configuration" to "Horizontal"
 
 Note that these types are different than the types used for body slots.
