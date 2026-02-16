@@ -194,6 +194,11 @@ The above standards are currently followed by the mod loaders listed below:
    - full support with extension: https://www.nexusmods.com/site/mods/1547
    - 100% parity with AstroModLoader Classic
 
+- Thunderstore Mod Manager
+
+   - full support with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/
+   - 100% parity with AstroModLoader Classic
+
 -  astro_modloader (Rust)
 
    - no support for the ``enable_ue4ss`` field; if used, the mod fails to load

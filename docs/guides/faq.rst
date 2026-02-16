@@ -19,7 +19,7 @@ How can I get help with modding Astroneer?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you have any questions or are facing any issues that are not answered by this documentation, please feel free to join the Astroneer Modding Discord server and ask your questions there. You can join the Discord server using the following invite link: https://discord.gg/bBqdVYxu4k
 
-Why are there two major mod loaders (astro_modloader and AstroModLoader Classic)?
+Why are there two major community mod loaders (astro_modloader and AstroModLoader Classic)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The first mod loader for Astroneer was called AstroModLoader by AstroTechies (primarily developed by atenfyr in 2020). When atenfyr initially left the Astroneer Modding community in late 2021, Konsti and localcc decided to rewrite AstroModLoader, along with AstroModIntegrator and UAssetAPI, into the Rust programming language. astro_modloader (Rust) was created from this effort.
 
