@@ -48,11 +48,15 @@ As a last resort, you can also simply copy your local ``%localappdata%\Astro\Sav
 
 Can I use mods on Linux?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Yes, you can use mods on Linux. You can execute `astro_modloader (Rust)`_ natively on Linux, or otherwise run AstroModLoader Classic through Wine + Mono.
+Yes, you can use mods on Linux. This section discusses four ways that you can set up Astroneer mods on Linux.
 
-You may also wish to use mods on Linux by installing `UE4SS`_ and AutoIntegrator, both of which are tested to work well through Proton. AutoIntegrator requires some additional steps to run through Proton. You can find more information about installing AutoIntegrator for Linux here: https://github.com/atenfyr/AutoIntegrator?tab=readme-ov-file#autointegrator
+You can execute `astro_modloader (Rust)`_ natively on Linux by simply downloading and executing the astro_modloader-linux-x64 binary from the Releases page of the repository.
 
-If needed, you can also run `AstroModIntegrator Classic`_ natively on Linux via the command line (use the ModIntegrator-linux-x64 binary).
+You can also run AstroModLoader Classic on Linux, but only through Wine; there is no native Linux binary for this software. You can do that by following this guide: https://github.com/atenfyr/AstroModLoader-Classic?tab=readme-ov-file#linux-setup
+
+You may also choose to use mods on Linux by installing `UE4SS`_ and AutoIntegrator, both of which are tested to work well through Proton. AutoIntegrator requires some additional steps to run through Proton. You can find more information about installing AutoIntegrator for Linux here: https://github.com/atenfyr/AutoIntegrator?tab=readme-ov-file#autointegrator
+
+Finally, you could also choose to simply execute `AstroModIntegrator Classic`_ natively on Linux through the command line (use the ModIntegrator-linux-x64 binary provided on the Releases page of the AstroModLoader Classic repository).
 
 .. _`astro_modloader (Rust)`: https://github.com/AstroTechies/astro_modloader/releases/latest
 .. _`AstroModIntegrator Classic`: https://github.com/atenfyr/AstroModLoader-Classic/releases/latest
