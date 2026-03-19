@@ -189,7 +189,7 @@ The above standards are currently followed by the mod loaders listed below:
    - full support
    - Blueprint API: https://github.com/atenfyr/AstroModLoader-Classic/tree/master/AstroModIntegrator/BlueprintAssets
 
-- AutoIntegrator-based mod managers (based on AMLC's integrator)
+-  AutoIntegrator-based mod managers (based on AMLC's integrator)
 
    - Vortex Mod Manager (with extension: https://www.nexusmods.com/site/mods/1547)
    - Thunderstore Mod Manager (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
