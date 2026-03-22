@@ -19,14 +19,18 @@ How can I get help with modding Astroneer?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you have any questions or are facing any issues that are not answered by this documentation, please feel free to join the Astroneer Modding Discord server and ask your questions there. You can join the Discord server using the following invite link: https://discord.gg/bBqdVYxu4k
 
+What mod managers can I use to install mods for Astroneer?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can find a list of all mod managers that support Astroneer under :ref:`compatibility` on the :ref:`metadatav2` page.
+
 Why are there two major community mod loaders (astro_modloader and AstroModLoader Classic)?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The first mod loader for Astroneer was called AstroModLoader by AstroTechies (primarily developed by atenfyr in 2020). When atenfyr initially left the Astroneer Modding community in late 2021, Konsti and localcc decided to rewrite AstroModLoader, along with AstroModIntegrator and UAssetAPI, into the Rust programming language. astro_modloader (Rust) was created from this effort.
 
 In late 2024, Konsti shut down the astroneermods.space website and left the Astroneer Modding community, which caused astro_modloader (Rust) to become unmaintained.
 Shortly thereafter, atenfyr returned to the Astroneer Modding community, began to maintain astro_modloader (Rust), and also created his own updated fork of the original AstroTechies AstroModLoader, which is now AstroModLoader Classic.
 
-Both mod loaders are currently actively maintained and are compatible with most Astroneer mods, but there are some minor variations that exist between each mod manager's implementation of the mod integrator, discussed further in the :ref:`compatibility` section of the :ref:`metadatav2` page. Most notably, astro_modloader (Rust) does not currently support UE4SS mods.
+Both mod loaders are currently maintained and are compatible with most Astroneer mods, but there are some variations that exist between each mod manager's implementation of the mod integrator, discussed further in the :ref:`compatibility` section of the :ref:`metadatav2` page. Most notably, astro_modloader (Rust) does not currently support UE4SS mods or custom routines.
 
 How can I implement Astroneer support for my custom mod manager?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -66,7 +70,11 @@ Can I develop mods on Linux?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Most mod development infrastructure is designed for Windows, and it is highly recommended to develop mods on the Windows operating system.
 
-It is possible to use repak (natively), UAssetGUI (with Wine + Mono), and the Unreal Editor (natively for Ubuntu) on Linux, but guides and advice on doing so are not currently provided on this website.
+It is possible to use repak (natively), UAssetGUI (with Wine + Mono), and the Unreal Editor (natively for Ubuntu) on Linux. You may wish to review the following guides:
+
+- repak (easy): simply download published Linux binaries from GitHub https://github.com/trumank/repak/releases
+- UAssetGUI (medium): https://github.com/atenfyr/UAssetGUI?tab=readme-ov-file#linux-setup
+- Unreal Editor (hard): https://github.com/AstroTechies/ModdingKit?tab=readme-ov-file#linux-usage
 
 Can I use mods with a pirated version of the game?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
