@@ -33,8 +33,8 @@ Setup
 
 First, you will need to download two DLL files, which we will later use in our project. You can download these files at the following links:
 
-:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.1.0/AstroModIntegrator/CustomRoutineDevKit/AstroModIntegrator.dll`
-:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.1.0/AstroModIntegrator/CustomRoutineDevKit/UAssetAPI.dll`
+:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.2.0/AstroModIntegrator/CustomRoutineDevKit/AstroModIntegrator.dll`
+:download:`https://github.com/atenfyr/AstroModLoader-Classic/raw/refs/tags/v1.8.2.0/AstroModIntegrator/CustomRoutineDevKit/UAssetAPI.dll`
 
 Download these two files to whatever directory you would like.
 
