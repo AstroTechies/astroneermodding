@@ -182,7 +182,7 @@ The following is a list of fields that are valid within the root object of the m
 
 Compatibility
 -------------
-The above standards are currently followed by the mod loaders listed below:
+The above standards are currently followed by the mod managers listed below:
 
 -  AstroModLoader Classic (AMLC)
 
@@ -192,6 +192,7 @@ The above standards are currently followed by the mod loaders listed below:
 -  AutoIntegrator-based mod managers (based on AMLC's integrator)
 
    - Vortex Mod Manager (with extension: https://www.nexusmods.com/site/mods/1547)
+   - r2modman (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
    - Thunderstore Mod Manager (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
    - Gale Mod Manager (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
 
