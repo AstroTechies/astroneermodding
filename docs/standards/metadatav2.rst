@@ -184,19 +184,19 @@ Compatibility
 -------------
 The above standards are currently followed by the mod managers listed below:
 
--  AstroModLoader Classic (AMLC)
+-  `AstroModLoader Classic (AMLC) <https://github.com/atenfyr/AstroModLoader-Classic>`_
 
    - full support
    - Blueprint API: https://github.com/atenfyr/AstroModLoader-Classic/tree/master/AstroModIntegrator/BlueprintAssets
 
 -  AutoIntegrator-based mod managers (based on AMLC's integrator)
 
-   - Vortex Mod Manager (with extension: https://www.nexusmods.com/site/mods/1547)
-   - r2modman (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
-   - Thunderstore Mod Manager (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
-   - Gale Mod Manager (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
+   - `Vortex Mod Manager <https://www.nexusmods.com/vortex>`_ (with extension: https://www.nexusmods.com/site/mods/1547)
+   - `r2modman <https://thunderstore.io/c/astroneer/p/ebkr/r2modman/>`_ (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
+   - `Thunderstore Mod Manager <https://www.overwolf.com/app/thunderstore-thunderstore_mod_manager>`_ (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
+   - `Gale Mod Manager <https://thunderstore.io/c/astroneer/p/Kesomannen/GaleModManager/>`_ (with extension: https://thunderstore.io/c/astroneer/p/atenfyr/AutoIntegrator/)
 
--  astro_modloader (Rust)
+-  `astro_modloader (Rust) <https://github.com/astrotechies/astro_modloader>`_
 
    - no support for the ``enable_ue4ss`` field; if used, the mod fails to load
    - no support for the ``crate_overlay_textures`` field; if used, the mod fails to load
