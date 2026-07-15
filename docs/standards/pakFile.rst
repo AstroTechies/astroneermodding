@@ -17,8 +17,7 @@ On distribution, .pak mod file names MUST follow the following format, in order 
    Mod IDs SHOULD be formatted in upper camel case, also known as Pascal case.
    A single period character MAY be used to extend the Mod ID with an Author ID to distinguish between mods made by different people.
 
--  ``{VERSION}`` represents the current revision of the mod file. The version MUST be represented by at least two numbers separated by periods,
-   but ultimately SHOULD be ``MAJOR.MINOR.PATCH`` .
+-  ``{VERSION}`` represents the current revision of the mod file. The version MUST be represented by exactly three numbers separated by periods. It is RECOMMENDED to use `Semantic Versioning <https://semver.org/>`_ (``MAJOR.MINOR.PATCH``).
 
 -  The ``_P`` at the end of the file's name is a requirement for the mod to load. This designates that the .pak file is a "patch", meaning that it will always load after the base game's paks load, no matter what.
 
