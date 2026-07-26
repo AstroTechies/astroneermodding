@@ -370,6 +370,67 @@ You do not need to have the Glitchwalkers DLC purchased or installed to implemen
 
 If your mod does nothing other than make a vanilla item "hacked" or "unhacked" in the Glitchwalkers DLC, then you don't need to include anything else in your .pak file other than the metadata.json file.
 
+How can I make a resource storable in resource canisters?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the following entries to your metadata.json file. If the "integrator" or "item_list_entries" tags already exist in your metadata.json file, merge these new entries with your existing entries.
+
+.. code-block:: json
+
+  "integrator": {
+      "item_list_entries": {
+         "/Game/Items/Canisters/ResourceCanister_ItemTypes": {
+              "ItemTypes": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          },
+          "/Game/Items/ItemTypes/Components/MediumResourceCanister_IT": {
+              "ContainerSubtypeWhitelist": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          },
+          "/Game/Items/ItemTypes/Components/LargeResourceCanister_IT": {
+              "ContainerSubtypeWhitelist": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          },
+          "/Game/Items/ItemTypes/Components/ExtraLargeResourceCanister_IT": {
+              "ContainerSubtypeWhitelist": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          }
+      }
+  }
+
+If your mod does nothing other than add a vanilla item to one of these canisters, then you don't need to include anything else in your .pak file other than the metadata.json file.
+
+How can I make a resource storable in gas canisters?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the following entries to your metadata.json file. If the "integrator" or "item_list_entries" tags already exist in your metadata.json file, merge these new entries with your existing entries.
+
+.. code-block:: json
+
+  "integrator": {
+      "item_list_entries": {
+          "/Game/Items/Canisters/GasCanister_ItemTypes": {
+              "ItemTypes": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          },
+          "/Game/Items/ItemTypes/Components/MediumGasCanister_IT": {
+              "ContainerSubtypeWhitelist": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          },
+          "/Game/Items/ItemTypes/Components/LargeGasCanister_IT": {
+              "ContainerSubtypeWhitelist": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          }
+      }
+  }
+
+If your mod does nothing other than add a vanilla item to one of these canisters, then you don't need to include anything else in your .pak file other than the metadata.json file.
+
 Unreal Editor Questions
 --------------------------
 
