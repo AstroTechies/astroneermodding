@@ -664,13 +664,18 @@ With the AstroTechies ModdingKit installed, you can open the ModDeployer plugin 
 
 How can I extract sounds from the game?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Sounds in Astroneer are stored as Wwise .wem files, with many .wem files being contained within Wwise .bnk archive files located in the ``Astro/Content/WwiseAudio/Windows`` directory. You can extract and edit .bnk archive files using tools like `eXpl0it3r's bnkextr`_ or `monkeyman192's bnkEditor`_. Astroneer .wem files can be converted to-and-from .wav files using `atenfyr's wem2wav2wem.py script`_.
+Sounds in Astroneer are stored as Wwise .wem files, with many .wem files being contained within Wwise .bnk archive files located in the ``Astro/Content/WwiseAudio/Windows`` directory. You can extract .bnk archive files using tools like `FModel`_, `eXpl0it3r's bnkextr`_, or `monkeyman192's bnkEditor`_. Astroneer .wem files can be converted to-and-from .wav files using `atenfyr's wem2wav2wem.py script`_.
 
-It is currently not feasible to modify base game .bnk files without directly patching the original .pak file, which makes it somewhat impractical to create mods that change game sounds. Further research is necessary in this field.
-
+.. _`FModel`: https://github.com/4sval/FModel
 .. _`eXpl0it3r's bnkextr`: https://github.com/eXpl0it3r/bnkextr
 .. _`monkeyman192's bnkEditor`: https://github.com/monkeyman192/bnkEditor
 .. _`atenfyr's wem2wav2wem.py script`: https://gist.github.com/atenfyr/26c91a534ff8d801501d3c5423160ad9
+
+How can I modify sounds?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+As of the time of writing, the only tool verified to be functional for modifying Astroneer .bnk files is `EtiTheSpirit's BNKReplacer`_. You can extract sounds from the game using the tools mentioned in the previous question, modify the sounds as needed, and use BNKReplacer to convert the extracted files to .wem and replace them within .bnk files. 
+
+.. _`EtiTheSpirit's BNKReplacer`: https://github.com/EtiTheSpirit/BNKReplacer
 
 Can I add custom cosmetics to the game?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
