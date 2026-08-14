@@ -179,11 +179,13 @@ In UAssetGUI, locate the BlueprintGeneratedClass export for the asset in questio
 
 How can I get a list of properties that are available in some export?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-First, download and import this set of mappings into UAssetGUI using the Utils -> Import mappings... option: :download:`Astro.usmap <Astro.usmap>`
+First, download and import this set of mappings into UAssetGUI using the Utils -> Import mappings... option (as of the time of writing, you must use `latest experimental`_): :download:`Astro.jmap.gz <Astro.jmap.gz>`
 
 Once these mappings are imported and then selected in the top-right of the UAssetGUI menu, you can select any export and choose the Utils -> Dump serializable properties... option. This option dumps and opens a .txt file containing all of the valid properties (and their types) that can be specified for the currently selected export.
 
 These mappings are not required to parse assets for Astroneer (although they are required to parse assets for many other games, including almost all UE5 games), but providing UAssetGUI with a copy of these mappings does have additional benefits, including the ability to dump extra metadata and provide resolution for rare ambiguous serialization.
+
+.. _`latest experimental`: https://github.com/atenfyr/UAssetGUI/releases/tag/experimental-latest
 
 Why is this export missing some properties?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
