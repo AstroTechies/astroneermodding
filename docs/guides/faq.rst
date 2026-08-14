@@ -431,6 +431,24 @@ Add the following entries to your metadata.json file. If the "integrator" or "it
 
 If your mod does nothing other than add a vanilla item to one of these canisters, then you don't need to include anything else in your .pak file other than the metadata.json file.
 
+How can I make an item unlocked by default in the research catalog?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the following entry to your metadata.json file. If the "integrator" or "item_list_entries" tags already exist in your metadata.json file, merge this new entry with your existing entries.
+
+.. code-block:: json
+
+  "integrator": {
+      "item_list_entries": {
+          "/Game/InitialUnlocks_Generous": {
+              "ItemTypes": [
+                  "/Game/PATH/TO/ITEM/TO/ADD/ExampleItem_IT"
+              ]
+          }
+      }
+  }
+
+If your mod does nothing other than add a vanilla item to one of these canisters, then you don't need to include anything else in your .pak file other than the metadata.json file.
+
 Unreal Editor Questions
 --------------------------
 
