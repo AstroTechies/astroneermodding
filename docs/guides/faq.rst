@@ -447,7 +447,7 @@ Add the following entry to your metadata.json file. If the "integrator" or "item
       }
   }
 
-If your mod does nothing other than add a vanilla item to one of these canisters, then you don't need to include anything else in your .pak file other than the metadata.json file.
+If your mod does nothing other than make a vanilla item unlocked by default, then you don't need to include anything else in your .pak file other than the metadata.json file.
 
 Unreal Editor Questions
 --------------------------
