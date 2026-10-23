@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UAssetAPI;
 using UAssetAPI.UnrealTypes;
 
@@ -44,6 +44,12 @@ namespace AstroModIntegrator
         /// <param name="engVer">An output variable containing the engine version of the asset, if appropriate.</param>
         /// <returns>A byte array containing the raw binary data of the file that was fetched, or null if it could not be found.</returns>
         public byte[] FindFileRaw(string target, out EngineVersion engVer);
+
+        /// <summary>
+        /// Returns a list of all file paths that can be accessed.
+        /// </summary>
+        /// <returns>A list of all file paths that can be accessed.</returns>
+        public IReadOnlyList<string> GetAllPaths();
 
         /// <summary>
         /// Add an asset to be deployed in the integrator pak. Overrides any asset at the same path that have already been added to the integrator pak.
