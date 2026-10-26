@@ -70,7 +70,7 @@ Can I develop mods on Linux?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Most mod development infrastructure is designed for Windows, and it is highly recommended to develop mods on the Windows operating system.
 
-It is possible to use repak (natively), UAssetGUI (with Wine + Mono), and the Unreal Editor (natively for Ubuntu) on Linux. You may wish to review the following guides:
+It is possible to use repak (natively), UAssetGUI (with Wine + Mono), and the Unreal Editor (with Wine) on Linux. You may wish to review the following guides:
 
 - repak (easy): simply download published Linux binaries from GitHub https://github.com/trumank/repak/releases
 - UAssetGUI (medium): https://github.com/atenfyr/UAssetGUI?tab=readme-ov-file#linux-setup
@@ -90,13 +90,29 @@ Place your .pak files manually at the appropriate path (in the ``%localappdata%\
 
 How do I install a mod using a mod manager?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Mods are distributed as .pak files. Simply drag-and-drop the mod's .pak file onto the window of the mod manager you are using.
+Mods are distributed as .pak files. You can simply drag-and-drop the mod's .pak file onto the window of the mod manager you are using.
 
 How can I tell if a mod is compatible with the latest game version?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked. (A similar incident occurred in 2022 with the "Xenobiology Update" [1.24.29.0], which updated the engine version from 4.18 to 4.23)
 
 Many mods specify the ``game_build`` field in their ``metadata.json`` file, which provides information about what version of the game the mod is intended to be used with. If this version is unspecified or is not the latest version of the game, the mod is not guaranteed to work, but may work nonetheless. Any mod that is designed for game version 1.35 or earlier is guaranteed to not function on the latest version of the game.
+
+I somehow corrupted my local environment, and now the game won't launch properly, even without mods!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To completely reset your local environment, install AstroModLoader Classic (if not already installed), open AstroModLoader Classic, press "Settings...", and press "Reset...". This step will fully reset your Astroneer environment for all mod managers, not just for AstroModLoader Classic. You are recommended to create backups of your save files before performing this step.
+
+Alternatively, if this is not possible, you can instead perform the following steps to manually reset your local environment. Please follow these steps carefully. We are not responsible for any damage to your computer that may occur by following these steps (correctly or incorrectly).
+
+1. Navigate to your local installation of ASTRONEER. Delete all files and folders in the ``Astro\Win64\Binaries`` directory except for ``Astro-Win64-Shipping.exe``, ``OpenImageDenoise.dll``, and ``tbb12.dll``. Delete the ``Astro\Content\Paks\LogicMods`` directory.
+
+  - If this step causes the game to fail to launch, or if you accidentally deleted something else, you can re-install the game or select "Verify integrity of game files" in Steam.
+
+2. Delete the folders ``%localappdata%\Astro\Saved\Paks``, ``%localappdata%\Astro\Saved\Mods``, and ``%localappdata%\AstroModLoader``.
+
+  - If using Proton on Linux, you can do this by opening a terminal window and executing ``protontricks --no-bwrap 361420 shell`` followed by ``cd users/steamuser/AppData/Local && rm -r Astro/Saved/Paks Astro/Saved/Mods AstroModLoader; exit``.
+
+3. You're done!
 
 What is a .pak file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -548,7 +564,11 @@ After cooking your assets, you will have to use UAssetGUI to add a new "bSaveGam
 
 How can I allow my users to configure my mod?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can expose a blueprint property to be configurable by checking the "Config Variable" flag on the property (you may need to click the "Show Advanced" arrow button to see this option). This allows users to specify a custom entry in the Engine.ini file to change the property's default value. The new entry will be available in the Engine.ini file under the header ``[/Game/Path/To/Your/ActorFileName.ActorFileName_C]`` (with the appropriate path and file name).
+There are two methods to allow users to configure your mod; through ModConfigs (exclusive to AstroModLoader Classic and AutoIntegrator-based managers), and through .ini files.
+
+You can create a ModConfig widget in your mod for use with AstroModLoader Classic, which will allow your users to access the widget in-game through AstroModLoader Classic's "Mod Options" page. You can find more information about ModConfigs on Github: https://github.com/atenfyr/AstroModLoader-Classic/blob/master/AstroModIntegrator/BlueprintAssets/README.md#modconfig
+
+Alternatively, you can expose a blueprint property to be configurable by checking the "Config Variable" flag on the property (you may need to click the "Show Advanced" arrow button to see this option). This allows users to specify a custom entry in the Engine.ini file to change the property's default value. The new entry will be available in the Engine.ini file under the header ``[/Game/Path/To/Your/ActorFileName.ActorFileName_C]`` (with the appropriate path and file name).
 
 How can I have one of my custom missions be activated by a vanilla mission?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
