@@ -94,7 +94,7 @@ Mods are distributed as .pak files. You can simply drag-and-drop the mod's .pak 
 
 How can I tell if a mod is compatible with the latest game version?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked. (A similar incident occurred in 2022 with the "Xenobiology Update" [1.24.29.0], which updated the engine version from 4.18 to 4.23)
+Any mods that were last updated before November 21st, 2025 are incompatible with the latest version of the game, because the recent MEGATECH update (1.36.42.0) updated the Unreal Engine version of the game from 4.23 to 4.27, which required that all mods be re-cooked.
 
 Many mods specify the ``game_build`` field in their ``metadata.json`` file, which provides information about what version of the game the mod is intended to be used with. If this version is unspecified or is not the latest version of the game, the mod is not guaranteed to work, but may work nonetheless. Any mod that is designed for game version 1.35 or earlier is guaranteed to not function on the latest version of the game.
 
